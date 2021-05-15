@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['user'])) {
-    header('location:table-Personnes.php');
+if (isset($_SESSION['admin'])) {
+    header('location:Home.php');
 }
 ?>
 <!DOCTYPE html>
@@ -14,12 +14,12 @@ if (isset($_SESSION['user'])) {
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
     <meta content="Coderthemes" name="author"/>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
     <!-- App css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style"/>
-    <link href="assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style"/>
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style"/>
+    <link href="../assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style"/>
 
 </head>
 
@@ -45,7 +45,7 @@ if (isset($_SESSION['user'])) {
                                 minute </p>
                         </div>
 
-                        <form action="processRegistre.php" method="post">
+                        <form action="../processRegistre.php" method="post">
 
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email address</label>
@@ -102,8 +102,8 @@ if (isset($_SESSION['user'])) {
 </footer>
 
 <!-- bundle -->
-<script src="assets/js/vendor.min.js"></script>
-<script src="assets/js/app.min.js"></script>
+<script src="../assets/js/vendor.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
 
 </body>
 

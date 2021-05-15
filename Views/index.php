@@ -28,12 +28,12 @@ if (isset($_SESSION['admin'])) {
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
         <meta content="Coderthemes" name="author"/>
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
         <!-- App css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style"/>
-        <link href="assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style"/>
+        <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style"/>
+        <link href="../assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style"/>
 
     </head>
 
@@ -47,7 +47,7 @@ if (isset($_SESSION['admin'])) {
                         <!-- Logo -->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="index.php">
-                                <span><img src="assets/images/logo.png" alt="" height="18"></span>
+                                <span><img src="../assets/images/logo.png" alt="" height="18"></span>
                             </a>
                         </div>
 
@@ -59,7 +59,7 @@ if (isset($_SESSION['admin'])) {
                                     panel.</p>
                             </div>
 
-                            <form action="processLogin.php" method="post">
+                            <form action="../processLogin.php" method="post">
                                 <div class="mb-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
@@ -92,7 +92,7 @@ if (isset($_SESSION['admin'])) {
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="pages-register.php"
+                            <p class="text-muted">Don't have an account? <a href="../pages-register.php"
                                                                             class="text-muted ms-1"><b>Sign Up</b></a>
                             </p>
                         </div> <!-- end col -->
@@ -111,8 +111,8 @@ if (isset($_SESSION['admin'])) {
     </footer>
 
     <!-- bundle -->
-    <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/app.min.js"></script>
+    <script src="../assets/js/vendor.min.js"></script>
+    <script src="../assets/js/app.min.js"></script>
 
     </body>
 
