@@ -43,6 +43,7 @@ if($produit)
         // echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         echo 'Message has been sent';
+//        header('location:../Views/Afficher_produit.php');
     }
 }
 

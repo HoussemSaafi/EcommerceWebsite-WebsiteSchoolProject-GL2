@@ -43,6 +43,15 @@ class Produit
         $this->Designation = $Designation;
     }
 
+    /**
+     * @param mixed $ImgProduit
+     */
+    public function setImgProduit($ImgProduit)
+    {
+        $this->ImgProduit = $ImgProduit;
+    }
+
+
 	function getRef(){
 		return $this->Ref;
 		

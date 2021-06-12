@@ -73,6 +73,3 @@ include_once 'homePageLayout.php'
                         </div>
                             </div>
 
-                    <?php
-                    include_once 'footerPageLayout.php';
-                    ?>

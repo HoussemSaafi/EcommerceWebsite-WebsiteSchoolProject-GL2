@@ -48,7 +48,7 @@ include_once 'homePageLayout.php';
                                                         <b><?= $prod->Description ?></b>
                                                     </td>
                                                     <td>
-                                                        <a onclick="return confirm('êtes-vous sûr de vouloir supprimer ?')" href="../Administrator/Controllers/deleteCategorie.php?id=<?= $prod->DesignationCat ?>"> Supprimer </a>
+                                                        <a onclick="return confirm('êtes-vous sûr de vouloir supprimer ?')" href="../Controllers/deleteCategorie.php?id=<?= $prod->DesignationCat ?>"> Supprimer </a>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -59,7 +59,3 @@ include_once 'homePageLayout.php';
             <div id="err"></div>
         </div>
     </div>
-
-<?php
-include_once 'footerPageLayout.php';
-?>

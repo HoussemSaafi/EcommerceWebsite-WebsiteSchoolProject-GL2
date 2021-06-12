@@ -60,6 +60,3 @@ include_once 'homePageLayout.php'
             </table>
         </div>
     </div>
-<?php
-include_once 'footerPageLayout.php';
-?>

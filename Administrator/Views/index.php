@@ -115,6 +115,4 @@ if (isset($_SESSION['admin'])) {
     <script src="../assets/js/app.min.js"></script>
 
     </body>
-
-    <!-- Mirrored from coderthemes.com/hyper/modern/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Apr 2021 17:17:11 GMT -->
     </html>

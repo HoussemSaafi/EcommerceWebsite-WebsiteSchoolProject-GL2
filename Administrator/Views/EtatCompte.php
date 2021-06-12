@@ -6,7 +6,7 @@ include('../Views/RechercheClient.php');
 /*$auth_admin = new Admin();
 $admin_id = $_SESSION['admin_session']; */
 //$conn= new CrudClient();
-$id = $_POST['id'];
+isset($_POST['id'])?$id= $_POST['id']:$id=0;
 $conn= ConnexionBD::getInstance();
 if(isset($_POST['activer'])){
  $conn->desactivercompte($id) ;

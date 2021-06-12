@@ -182,10 +182,6 @@ include_once 'homePageLayout.php'
                         }
                     </script>
                     <!-- METISMENU SCRIPTS -->
-                    <script src="assets/js/jquery.metisMenu.js"></script>
+                    <script src="../assets/js/jquery.metisMenu.js"></script>
                     <!-- CUSTOM SCRIPTS -->
-                    <script src="assets/js/custom.js"></script>
-
-<?php
-include_once 'footerPageLayout.php';
-?>
+                    <script src="../assets/js/custom.js"></script>

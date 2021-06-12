@@ -6,10 +6,10 @@ include_once 'homePageLayout.php'
             <div id="page-inner">
 
                 <div class="panel panel-info">
-                    <div class="panel-heading"> <img src="assets/images/add_product_icon.png">Ajouter produit </div>
+                    <div class="panel-heading"> <img src="../assets/images/add_product_icon.png">Ajouter produit </div>
                     <div class="panel-body">
                     <div style="Float: Left">
-                     <form action="../Administrator/Controllers/AjoutProduit.php" method="POST" enctype="multipart/form-data">
+                     <form action="../Controllers/AjoutProduit.php" method="POST" enctype="multipart/form-data">
 
                     <fieldset>
                        
@@ -29,12 +29,27 @@ include_once 'homePageLayout.php'
                                 <p>
                                     <label style=" width: 150px; float: Left">Prix :</label>  <input  type="text" id="prix" name="prix" />
                                 </p>
+                                <?php
+                                include("../Services/CrudCategorie.php");
+                                $c=new CrudCategorie();
+                                $liste= $c->afficheCategorie($c->conn);
+                                if(empty($liste))
+                                {
+                                    echo("<script>location = 'Afficher_Produit.php';</script>");
+                                }
+                                ?>
                                 
                                 <p>
-                                   <label style="display: block; width: 150px; float: Left" for="pays">Catégorie :</label>
-                                   <div id="cat_div">
-
-                                   </div>
+                                    <label>Categorie</label><br>
+                                    <select class="form-control" name="categorie" id="categorie">
+                                        <?php
+                                        foreach ($liste as $key => $value) {
+                                            ?>
+                                            <option><?php echo $value->DesignationCat;?> </option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
                                </p>
 
                                  <p>
@@ -49,7 +64,8 @@ include_once 'homePageLayout.php'
                                 <FORM> <TEXTAREA style="FONT-SIZE: 12pt; WIDTH: 500px; height:200px; FONT-FAMILY: Verdana ; overflow-y: auto; resize: none;" rows=5 name="description" id="description"> </TEXTAREA> </FORM>
                                 <br>
                                 <p>
-                                <input type="file" id="imageProd" name="imageProd" accept="image/*" />
+                                    <label for="img">Select image:</label>
+                                    <input type="file" id="imagefile" name="imagefile" accept="image/*">
                                 </p>
                         
                                 <input type="submit" value="Appliquer" name="ajouter" id="ajouter">
@@ -78,9 +94,9 @@ include_once 'homePageLayout.php'
     <!-- /. FOOTER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="../assets/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 
     <script type="text/javascript" src="vendor/datatables/media/js/jquery.dataTables.min.js"></script>

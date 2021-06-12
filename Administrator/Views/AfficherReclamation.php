@@ -113,9 +113,6 @@ else
 
 </table>
 
-                <?php
-                include_once 'footerPageLayout.php';
-                ?>
             </div>
         </div>
 

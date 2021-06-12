@@ -166,20 +166,17 @@ $liste=$client->affichertouslesclient();
     </div>
     <!-- /. PAGE WRAPPER  -->
 </div>
-<!-- /. WRAPPER  -->
-<div id="footer-sec">
-    &copy; <a >WebStep</a>
-</div>
+
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 <!-- JQUERY SCRIPTS -->
-<script src="assets/js/jquery-1.10.2.js"></script>
+<script src="../assets/js/jquery-1.10.2.js"></script>
 <!-- BOOTSTRAP SCRIPTS -->
-<script src="assets/js/bootstrap.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
 <!-- METISMENU SCRIPTS -->
-<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="../assets/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
-<script src="assets/js/custom.js"></script>
+<script src="../assets/js/custom.js"></script>
 <script>
     function myFunction(K) {
         var input, filter, table, tr, td, i, txtValue;
@@ -208,7 +205,7 @@ $liste=$client->affichertouslesclient();
         }
     }
 </script>
-<script src="assets/js/recherche_dynamique.js"></script>
+<script src="../assets/js/recherche_dynamique.js"></script>
 
 
 </body>

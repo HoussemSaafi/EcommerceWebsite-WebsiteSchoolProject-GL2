@@ -6,7 +6,7 @@ include_once 'homePageLayout.php'
         <form method="POST" >
             <div id="page-inner">
                     <div class="panel panel-info">
-                    <div class="panel-heading"> <img src="assets/images/add_product_icon.png">Afficher les produits </div>
+                    <div class="panel-heading"> <img src="../assets/images/add_product_icon.png">Afficher les produits </div>
                     <div class="panel-body">
 
 
@@ -28,6 +28,7 @@ include_once 'homePageLayout.php'
                         <th><input type="text" class="form-control" placeholder="Quantité minimum" ></th>
                         <th><input type="text" class="form-control" placeholder="Description" ></th>
                         <th><input type="text" class="form-control" placeholder="ID catégorie" ></th>
+                        <th><input type="text" class="form-control" placeholder="Image Produit" ></th>
                  
                         
 
@@ -69,6 +70,9 @@ include_once 'homePageLayout.php'
                                                             echo'<td>
                                                                 <b>'.$prod->ID_Categorie.'</b>
                                                             </td>';
+                                                            echo'<td>
+                                                                <b>'."<img src=data:image;base64,".$prod->ImgProduit." style=max-width:50px;width:100%></b></td>"
+                                                            ;
                                                             
 
                                                             
@@ -81,6 +85,3 @@ include_once 'homePageLayout.php'
             </table>
         </div>
     </div>
-<?php
-include_once 'footerPageLayout.php';
-?>

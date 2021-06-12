@@ -1,6 +1,5 @@
 <?php
 include_once '../isAuthenticatedAdmin.php';
-include_once '../autoload.php';
 ?>
 
 
@@ -53,7 +52,7 @@ include_once '../autoload.php';
         <div class="header-right">
 
 
-            <a href="../logout.php?logout=true" class="btn btn-danger" title="Logout"><i class="fa fa-sign-out ""></i>Logout</a>
+            <a href="logout.php?logout=true" class="btn btn-danger" title="Logout"><i class="fa fa-sign-out ""></i>Logout</a>
 
 
         </div>
@@ -162,10 +161,10 @@ include_once '../autoload.php';
                     <a href="#"><i class="fa fa-desktop "></i>Réclamations<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="index-admin.php"><i class="fa fa-toggle-on"></i>Liste des réclamations</a>
+                            <a href="AfficherReclamation.php"><i class="fa fa-toggle-on"></i>Liste des réclamations</a>
                         </li>
                         <li>
-                            <a href="javascript: afficheReponse();"><i class="fa fa-bell "></i>Réponses aux réclamations</a>
+                            <a href="afficheReponseReclamation.php"><i class="fa fa-bell "></i>Réponses aux réclamations</a>
                         </li>
                     </ul>
                 </li>

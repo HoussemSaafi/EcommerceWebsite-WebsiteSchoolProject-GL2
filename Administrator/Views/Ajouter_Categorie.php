@@ -46,38 +46,18 @@ include_once 'homePageLayout.php'
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
-    <!-- /. WRAPPER  -->
-    <div id="footer-sec">
-        &copy;GL2 Team | Thank you for visiting us
-    </div>
-    <!-- /. FOOTER  -->
+
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="../assets/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
-
-    <script type="text/javascript" src="vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-
-    <script type="text/javascript" src="vendor/ng-file-upload/ng-file-upload-shim.min.js"></script>
-
-    <script type="text/javascript" src="vendor/angular/angular.js"></script>
-
-    ...
-
-    <script type="text/javascript" src="vendor/ng-file-upload/ng-file-upload.js"></script>
-
-    <script type="text/javascript" src="src/app/app.js"></script>
-
-    <script type="text/javascript" src="src/app/client/client.js"></script>
-
+    <script src="../assets/js/bootstrap.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="upload.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="../assets/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+    <script src="../assets/js/custom.js"></script>
 
         <script language="javascript" type="text/javascript">
             function checkCat()

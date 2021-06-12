@@ -197,6 +197,3 @@ include_once 'homePageLayout.php'
                             }
                             </script>
 
- <?php
- include_once 'footerPageLayout.php';
- ?>

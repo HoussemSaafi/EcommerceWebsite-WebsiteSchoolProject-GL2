@@ -128,6 +128,4 @@ include_once 'homePageLayout.php'
                                        <?php } ?>
 </table>
 
-                <?php
-                include_once 'footerPageLayout.php';
-                ?>
+

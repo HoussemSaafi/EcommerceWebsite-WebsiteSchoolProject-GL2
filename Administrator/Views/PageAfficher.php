@@ -130,6 +130,4 @@ include_once 'homePageLayout.php'
                                         <td><?php echo $l[4]//$l[4] ?></td>
                                        <?php } ?>
 </table>
-                <?php
-                include_once 'footerPageLayout.php';
-                ?>
+

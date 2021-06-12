@@ -114,7 +114,3 @@ if ($supprimer = isset($_POST["supprimer"])){
 </div>
 </body>
 </html>
-<?php
-include_once 'footerPageLayout.php';
-
-?>
