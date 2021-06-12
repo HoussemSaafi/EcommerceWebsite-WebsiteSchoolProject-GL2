@@ -14,7 +14,7 @@ include 'class.user.php';
 	if (isset($_SESSION['user_session'])) {
 	$user_id = $_SESSION['user_session'];
 	$auth_user = new USER();
-	$stmt = $auth_user->runQuery("SELECT * FROM users WHERE IDclient=:user_id");
+	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
 	$stmt->execute(array(":user_id"=>$user_id));
      $auth_user->User_connecte($user_id);
 	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,9 +57,9 @@ include 'raccourciPanier.php';
                     	{
                     		?>	
                     			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                    		    <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
               
-                				<li><a href="../EspaceClient/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+                				<li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
 
                 		<?php		
@@ -68,8 +68,8 @@ include 'raccourciPanier.php';
                       else
                       {
                     ?>
-					<li><a href="../EspaceClient/sign-up">Créer un compte</a></li>
-					<li><a href="../EspaceClient/index">Se connecter</a></li>
+					<li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
+					<li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
 					
 
                <?php
@@ -83,7 +83,7 @@ include 'raccourciPanier.php';
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="../home_shop-pack/mobile/index.html"><img src="web/images/logo.png" alt="" /></a>
 			</div>
 			  <?php
 				afficherPanier();
@@ -203,31 +203,31 @@ include 'raccourciPanier.php';
 				<div class="col_1_of_4 span_1_of_4">
 						<h4>Information</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
+						<li><a href="../home_shop-pack/mobile/about.html">About Us</a></li>
+						<li><a href="../home_shop-pack/mobile/contact.html">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="../home_shop-pack/mobile/delivery.html">Orders and Returns</a></li>
+						<li><a href="../home_shop-pack/mobile/contact.html">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
+						<li><a href="../home_shop-pack/mobile/about.html">About Us</a></li>
+						<li><a href="../home_shop-pack/mobile/contact.html">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html">Site Map</a></li>
+						<li><a href="../home_shop-pack/mobile/contact.html">Site Map</a></li>
 						<li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
+							<li><a href="../home_shop-pack/mobile/contact.html">Sign In</a></li>
+							<li><a href="../home_shop-pack/mobile/index.html">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
-							<li><a href="#">Track My Order</a></li>
-							<li><a href="contact.html">Help</a></li>
+							<li><a href="../services/consulterLivraison.php">Track My Order</a></li>
+							<li><a href="../home_shop-pack/mobile/contact.html">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">

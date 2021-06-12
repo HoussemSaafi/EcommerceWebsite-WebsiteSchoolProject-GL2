@@ -28,7 +28,7 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 $conn= ConnexionBD::getInstance();
 $keyword=$_GET['keyword'] ;
 
-$count_results=$conn->query("SELECT * from Produit where Designation LIKE '%".$keyword."%'");
+$count_results=$conn->query("SELECT * from produit where Designation LIKE '%".$keyword."%'");
 $rows=$count_results->fetchAll();
 
 

@@ -51,9 +51,9 @@ $conn= ConnexionBD::getInstance();
                     	{
                     		?>	
                     			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                    		    <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
               
-                				<li><a href="../EspaceClient/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+                				<li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
 
                 		<?php		
@@ -62,8 +62,8 @@ $conn= ConnexionBD::getInstance();
                       else
                       {
                     ?>
-					<li><a href="../EspaceClient/sign-up">Créer un compte</a></li>
-					<li><a href="../EspaceClient/index">Se connecter</a></li>
+					<li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
+					<li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
 					
 
                <?php
@@ -126,7 +126,7 @@ $conn= ConnexionBD::getInstance();
 	     	</div>
                 <div class="search_box">
                     <form>
-                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
+                        <input type="text" id="keywordSearch" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search';}" ><input type="submit" value="">
                     </form>
                 </div>
 
@@ -182,7 +182,7 @@ $conn= ConnexionBD::getInstance();
 
 									 <div id="slide-1" class="slide">			                    
 									 <div class="slider-img">
-									     <a href="preview.html"><?php echo ' <img alt="learn more" src="data:image;base64,'.$the_image[1].'" />'?></a>
+									     <a href="../home_shop-pack/mobile/preview.html"><?php echo ' <img alt="learn more" src="data:image;base64,'.$the_image[1].'" />'?></a>
 									  </div>
 						             	<div class="slider-text">
 		                                 <h1>Clearance<br><span>SALE</span></h1>
@@ -271,7 +271,7 @@ $conn= ConnexionBD::getInstance();
     		<h3>Feature Products</h3>
     		</div>
     		<div class="see">
-    			<p><a href="#">See all Products</a></p>
+    			<p><a href="see%20all%20products.php">See all Products</a></p>
     		</div>
     		<div class="clear"></div>
     	</div>
