@@ -66,6 +66,7 @@ $conn=ConnexionBD::getInstance();
             </div>
             <?php
             afficherPanier();
+
             ?>
             <script type="text/javascript">
                 function DropDown(el) {
@@ -82,7 +83,6 @@ $conn=ConnexionBD::getInstance();
                         });
                     }
                 }
-
                 $(function() {
 
                     var dd = new DropDown( $('#dd') );
@@ -93,7 +93,6 @@ $conn=ConnexionBD::getInstance();
                     });
 
                 });
-
             </script>
             <div class="clear"></div>
         </div>
