@@ -100,6 +100,7 @@ if (isset($_SESSION['user_session'])) {
                         });
                     }
                 }
+            </script>
 
 			$(function() {
 
