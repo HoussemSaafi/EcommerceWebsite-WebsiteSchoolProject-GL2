@@ -26,7 +26,7 @@ class USER
 		{
 			$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO users(username,email,nom,prenom,mdp,CIN,telephone,adresse,age,Repquestion,question) VALUES(:uname, :umail, :unom, :uprenom, :upass, :ucin, :utelephone, :uadresse, :uage, :urepquestion,:uquestion)");
+			$stmt = $this->conn->prepare("INSERT INTO client (username,email,nom,prenom,mdp,CIN,telephone,adresse,age,Repquestion,question) VALUES(:uname, :umail, :unom, :uprenom, :upass, :ucin, :utelephone, :uadresse, :uage, :urepquestion,:uquestion)");
 												  
 			$stmt->bindparam(":uname", $uname);
 			$stmt->bindparam(":umail", $umail);
@@ -76,7 +76,7 @@ class USER
 			$stmt->bindparam(':uadresse', $uadresse, PDO::PARAM_STR);
 			$stmt->bindparam(':uage', $uage, PDO::PARAM_INT);*/
 
-				$stmt = $this->conn->query("UPDATE users SET username = '".$uname."' , email ='".$umail."', nom = '".$unom."', prenom = '".$uprenom."', CIN    ='".$ucin."', telephone ='".$utelephone."', adresse ='".$uadresse."', age  ='".$uage."' WHERE IDclient = ".$uid); 
+				$stmt = $this->conn->query("UPDATE client SET username = '".$uname."' , email ='".$umail."', nom = '".$unom."', prenom = '".$uprenom."', CIN    ='".$ucin."', telephone ='".$utelephone."', adresse ='".$uadresse."', age  ='".$uage."' WHERE IDclient = ".$uid);
 
 			$stmt->execute(); 
 			
@@ -97,7 +97,7 @@ class USER
  		{
  			try
 			{   
-				$res=$this->conn->query("SELECT IDclient,username,email,nom,prenom,CIN,telephone,adresse,age,etatCompte,date_inscription FROM users");
+				$res=$this->conn->query("SELECT IDclient,username,email,nom,prenom,CIN,telephone,adresse,age,etatCompte,date_inscription FROM client");
 
 	          return  $liste=$res->fetchall();
 			}
@@ -116,7 +116,7 @@ class USER
 		{   
 			$new_password = password_hash($unewpass, PASSWORD_DEFAULT);
 		
-			$stmt = $this->conn->query("UPDATE users SET  mdp = '".$new_password."' WHERE IDclient = ".$user_id);
+			$stmt = $this->conn->query("UPDATE client SET  mdp = '".$new_password."' WHERE IDclient = ".$user_id);
 												  
 		
 			return $stmt;	
@@ -132,7 +132,7 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT IDclient, username, email  FROM users WHERE username=:uname OR email=:umail ");
+			$stmt = $this->conn->prepare("SELECT IDclient, username, email  FROM client WHERE username=:uname OR email=:umail ");
 			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
@@ -158,7 +158,7 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT IDclient, username, email, etatCompte FROM users WHERE username=:uname OR email=:umail ");
+			$stmt = $this->conn->prepare("SELECT IDclient, username, email, etatCompte FROM client WHERE username=:uname OR email=:umail ");
 			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
@@ -184,7 +184,7 @@ class USER
  	{
  		try
 		{
-			$stmt = $this->conn->prepare("SELECT username FROM users WHERE IDclient !=:uid and username=:uname ");
+			$stmt = $this->conn->prepare("SELECT username FROM client WHERE IDclient !=:uid and username=:uname ");
 			$stmt->execute(array(':uid'=>$uid, ':uname'=>$uname));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 0)
@@ -210,7 +210,7 @@ class USER
  	{
  		try
 		{
-			$stmt = $this->conn->prepare("SELECT email FROM users WHERE IDclient !=:uid and email=:umail ");
+			$stmt = $this->conn->prepare("SELECT email FROM client WHERE IDclient !=:uid and email=:umail ");
 			$stmt->execute(array(':uid'=>$uid, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 0)
@@ -238,7 +238,7 @@ class USER
  	{
  		try
 		{
-			$stmt = $this->conn->prepare("SELECT CIN FROM users WHERE IDclient !=:uid and CIN=:ucin ");
+			$stmt = $this->conn->prepare("SELECT CIN FROM client WHERE IDclient !=:uid and CIN=:ucin ");
 			$stmt->execute(array(':uid'=>$uid, ':ucin'=>$ucin));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 0)
@@ -271,7 +271,7 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT IDclient, username, email, mdp,etatCompte FROM users WHERE username=:uname OR email=:umail ");
+			$stmt = $this->conn->prepare("SELECT IDclient, username, email, mdp,etatCompte FROM client WHERE username=:uname OR email=:umail ");
 			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
@@ -301,7 +301,7 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT IDclient, username, email FROM users WHERE username=:uname OR email=:umail ");
+			$stmt = $this->conn->prepare("SELECT IDclient, username, email FROM client WHERE username=:uname OR email=:umail ");
 			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
@@ -365,7 +365,7 @@ class USER
 			try
 		{   
 		
-			$stmt = $this->conn->query("UPDATE users SET  etatconnexion  = 0 WHERE IDclient = ".$user_id);
+			$stmt = $this->conn->query("UPDATE client SET  etatconnexion  = 0 WHERE IDclient = ".$user_id);
 												  
 		
 			return $stmt;	
