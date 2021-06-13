@@ -10,7 +10,6 @@ if (isset($_SESSION['user_session'])) {
     $auth_user->User_connecte($user_id);
     $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 }
-$_SESSION['thispage']="index.php";
 include 'raccourciPanier.php';
 $conn=ConnexionBD::getInstance();
 ?>
@@ -27,6 +26,8 @@ $conn=ConnexionBD::getInstance();
     <script type="text/javascript" src="web/js/move-top.js"></script>
     <script type="text/javascript" src="web/js/easing.js"></script>
     <script type="text/javascript" src="web/js/startstop-slider.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 </head>
 <body>
 <div class="wrap">
