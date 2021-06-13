@@ -6,6 +6,7 @@ include 'commande.php';
 
 
 
+
 if (isset($_SESSION['user_session'])) {
 	$user_id = $_SESSION['user_session'];
 
