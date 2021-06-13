@@ -92,11 +92,11 @@ function submit(np)
                     <?php 
                     	if(isset($_SESSION['user_session'])) {?>
                     			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
-                				<li><a href="../EspaceClient/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+                    		    <li><a href="../EspaceClient/sevices/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                				<li><a href="../EspaceClient/sevices/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
                 		<?php  } else { ?>
-					<li><a href="../EspaceClient/sign-up">Créer un compte</a></li>
-					<li><a href="../EspaceClient/index">Se connecter</a></li>
+					<li><a href="../EspaceClient/sevices/sign-up.php">Créer un compte</a></li>
+					<li><a href="../EspaceClient/sevices/index.php">Se connecter</a></li>
                <?php } ?>
 				</ul>
 			</div>
