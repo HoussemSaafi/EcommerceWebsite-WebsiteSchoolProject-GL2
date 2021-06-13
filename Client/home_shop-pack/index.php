@@ -1,27 +1,20 @@
 
 <?php
 include 'class.user.php';
-//session_start();
-	if (isset($_SESSION['user_session'])) {
-	$user_id = $_SESSION['user_session'];
+session_start();
+if (isset($_SESSION['user_session'])) {
+    $user_id = $_SESSION['user_session'];
+    $auth_user = new USER();
+    $stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
+    $stmt->execute(array(":user_id"=>$user_id));
+    $auth_user->User_connecte($user_id);
+    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
-	$auth_user = new USER();
-	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
-	$stmt->execute(array(":user_id"=>$user_id));
-     $auth_user->User_connecte($user_id);
-	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 }
-
 $_SESSION['thispage']="index.php";
 include 'raccourciPanier.php';
-
-$conn= ConnexionBD::getInstance();
-
+$conn=ConnexionBD::getInstance();
 ?>
-
-
-
-
 <!DOCTYPE HTML>
 <head>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
@@ -31,58 +24,202 @@ $conn= ConnexionBD::getInstance();
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="web/css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="web/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="web/js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="web/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="web/js/move-top.js"></script>
 <script type="text/javascript" src="web/js/easing.js"></script>
 <script type="text/javascript" src="web/js/startstop-slider.js"></script>
 </head>
 <body>
-  <div class="wrap">
-	<div class="header">
-		<div class="headertop_desc">
-			<div class="call">
-				 <p><span>Besoin d'aide ?</span> appelez-nous <span class="number">+71458725</span></span></p>
-			</div>
-			<div class="account_desc">
-				<ul>
-					
-                    <?php 
-                    	if(isset($_SESSION['user_session']))
-                    	{
-                    		?>	
-                    			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
-              
-                				<li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+
+        <div class="wrap">
+            <div class="header">
+                <div class="headertop_desc">
+                    <div class="call">
+                        <p><span>Besoin d'aide ?</span> appelez-nous <span class="number">+71458725</span></span></p>
+                    </div>
+                    <div class="account_desc">
+                        <ul>
+
+                            <?php
+                            if(isset($_SESSION['user_session']))
+                            {
+                                ?>
+                                <label class="h5">welcome : <?php print($userRow['username']); ?></label>
+                                <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+
+                                <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
 
-                		<?php		
-                    	}
+                                <?php
+                            }
 
-                      else
-                      {
-                    ?>
-					<li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
-					<li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
-					
+                            else
+                            {
+                                ?>
+                                <li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
+                                <li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
 
-               <?php
 
-           }
-           ?>
-              
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</div>
+                                <?php
+
+                            }
+                            ?>
+
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+        <div class="header_top">
+            <div class="logo">
+                <a href="index.php"><img src="web/images/logo.png" alt="" width="100px" height="100px"/></a>
+            </div>
+            <div class="cart">
+                <p>Welcome to our Online Store! <span>Cart:</span></p><div id="dd" class="wrapper-dropdown-2">
+                    0 			  	   article(s)
+                    -0   TND
+                    <ul class="dropdown">
+
+                        you have no items in your Shopping cart
+                        <div>
+                            <a href="ConsulterPanier.php" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a>
+
+                        </div>
+
+                    </ul></div><p></p>
+            </div>
+            <script type="text/javascript">
+                function DropDown(el) {
+                    this.dd = el;
+                    this.initEvents();
+                }
+                DropDown.prototype = {
+                    initEvents : function() {
+                        var obj = this;
+
+                        obj.dd.on('click', function(event){
+                            $(this).toggleClass('active');
+                            event.stopPropagation();
+                        });
+                    }
+                }
+
+                $(function() {
+
+                    var dd = new DropDown( $('#dd') );
+
+                    $(document).click(function() {
+                        // all dropdowns
+                        $('.wrapper-dropdown-2').removeClass('active');
+                    });
+
+                });
+
+            </script>
+            <div class="clear"></div>
+        </div>
+
+        <div class="header_bottom">
+            <div class="menu">
+                <ul>
+                    <li ><a href="index.php">Acceuil</a></li>
+                    <li><a href="about.php">A propos</a></li>
+                    <li><a href="delivery.php">Livraison</a></li>
+                    <li><a href="news.php">Nouveauté</a></li>
+                    <li><a href="contact.php">Reclamation</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="search_box">
+                <form action="search.php" method="get" >
+                    <input type="text" id="keywordSearch"  name="keyword" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search';}" ><input  type="submit" id="keywordSearch" onclick="search()" value="">
+                </form>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        <div class="header_slide">
+            <div class="header_bottom_left">
+                <div class="categories">
+                    <ul>
+                        <h3>Categories</h3>
+                        <?php
+
+
+
+                        $req1="SELECT * from categorie";
+                        $result_Cat=$conn->query($req1);
+                        $result=$result_Cat->fetchAll();
+
+
+
+                        foreach($result as $prod)
+                        {
+                            echo'<li><a href="show categorie.php?keyword='.$prod['DesignationCat'].'">'.$prod['DesignationCat'].'</a></li>';
+
+
+
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="header_bottom_right">
+                <div class="slider">
+                    <div id="slider">
+                        <div id="mover">
+                            <div id="slide-1" class="slide">
+                                <div class="slider-img">
+                                    <a href="see all products.php"><img src="Client/home_shop-pack/mobile/images/promo.jpg" alt="learn more" /></a>
+                                </div>
+                                <div class="slider-text">
+                                    <h1>Clearance<br><span>SALE</span></h1>
+                                    <h2>UPTo 20% OFF</h2>
+                                    <div class="features_list">
+                                        <h4>Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text</h4>
+                                    </div>
+                                    <a href="see all products.php" class="button">Shop Now</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="slider-text">
+                                    <h1>Clearance<br><span>SALE</span></h1>
+                                    <h2>UPTo 40% OFF</h2>
+                                    <div class="features_list">
+                                        <h4>Get to Know More About Our Memorable Services</h4>
+                                    </div>
+                                    <a href="see all products.php"class="button">Shop Now</a>
+                                </div>
+                                <div class="slider-img">
+                                    <a href="see all products.php"><img src="../web/images/slide-3-image.jpg" alt="learn more" /></a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="slide">
+                                <div class="slider-img">
+                                    <a href="see all products.php"><img src="../web/images/slide-2-image.jpg" alt="learn more" /></a>
+                                </div>
+                                <div class="slider-text">
+                                    <h1>Clearance<br><span>SALE</span></h1>
+                                    <h2>UPTo 10% OFF</h2>
+                                    <div class="features_list">
+                                        <h4>Get to Know More About Our Memorable Services Lorem Ipsum is simply dummy text</h4>
+                                    </div>
+                                    <a href="see all products.php" class="button">Shop Now</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
 		<div class="header_top">
 			<div class="logo">
-		
-			</div>
-			  <?php
-				afficherPanier();
 
-			?>
+			</div>
+
 			  <script type="text/javascript">
 			function DropDown(el) {
 				this.dd = el;
@@ -90,76 +227,14 @@ $conn= ConnexionBD::getInstance();
 			}
 			DropDown.prototype = {
 				initEvents : function() {
-					var obj = this;
-
-					obj.dd.on('click', function(event){
-						$(this).toggleClass('active');
-						event.stopPropagation();
-					});	
-				}
-			}
-
-			$(function() {
-
-				var dd = new DropDown( $('#dd') );
-
-				$(document).click(function() {
-					// all dropdowns
-					$('.wrapper-dropdown-2').removeClass('active');
-				});
-
-			});
 
 		</script>
 	 <div class="clear"></div>
   </div>
-	<div class="header_bottom">
-	     	<div class="menu">
-	     		<ul>
-			    	<li class="active"><a href="index.php">Acceuil</a></li>
-			    	<li><a href="about.php">A propos</a></li>
-			    	<li><a href="delivery.php">Livraison</a></li>
-			    	<li><a href="news.php">Nouveauté</a></li>
-			    	<li><a href="contact.php">Reclamation</a></li>
-			    	<div class="clear"></div>
-     			</ul>
-	     	</div>
-                <div class="search_box">
-                    <form>
-                        <input type="text" id="keywordSearch" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search';}" ><input type="submit" onclick="search()" value="">
-                    </form>
-                </div>
-
-	     	<div class="clear"></div>
-	     </div>	     
-	<div class="header_slide">
-			<div class="header_bottom_left">				
-				<div class="categories">
-				  <ul>
-				  	<h3>Categories</h3>
-				  	<?php
 
 
-
-                            $req1="SELECT * from categorie";
-                    $result_Cat=$conn->query($req1);
-                    $result=$result_Cat->fetchAll();
-
-
-                            
-                            foreach($result as $prod)
-                            {                           
-                                echo'<li><a href="show categorie.php?keyword='.$prod['DesignationCat'].'">'.$prod['DesignationCat'].'</a></li>';
-
-                            
-
-                            }
-				  	?>
-				  </ul>
-				</div>					
-	  	     </div>
 	  	     <?php
-        
+
           $imagefile=$conn->query("SELECT  promotion.IDProduit,produit.ImgProduit,promotion.TauxDeProm,promotion.DateDebut,promotion.DateFin,
           	promotion.Description from produit inner join promotion on produit.Ref=promotion.IDProduit ORDER BY promotion.DateFin DESC  limit 3");
           $result=$imagefile->fetchAll(PDO::FETCH_NUM);
@@ -171,11 +246,11 @@ $conn= ConnexionBD::getInstance();
 
 
           ?>
-					 <div class="header_bottom_right">					 
-					 	 <div class="slider">					     
+					 <div class="header_bottom_right">
+					 	 <div class="slider">
 							 <div id="slider">
-			                    <div id="mover">		
-					  <?php 	foreach($result as $the_image) {?>			 
+			                    <div id="mover">
+					  <?php 	foreach($result as $the_image) {?>
 				
 									    								    
 									 
@@ -322,10 +397,8 @@ $conn= ConnexionBD::getInstance();
     </div>
  </div>
 </div>
-  
-        <div class="copy_right">
-				<p>SEBCOM © All rights Reseverd | Design by  <a >Webstep</a> </p>
-		   </div>
+
+
     </div>
     <script type="text/javascript">
 		$(document).ready(function() {			

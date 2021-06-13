@@ -1,11 +1,7 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <?php
-include 'class.user.php';
+require("HeaderLayout.php");
+/*include 'class.user.php';
 session_start();
 	if (isset($_SESSION['user_session'])) 
 	{
@@ -14,9 +10,8 @@ session_start();
 	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
 	$stmt->execute(array(":user_id"=>$user_id));
      $auth_user->User_connecte($user_id);
-	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);}
+	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);}*/
 
-include 'raccourciPanier.php';
 	    $conn=ConnexionBD::getInstance();
 	    $keyword=$_GET['keyword'] ;
         $keywords = explode(' ', $keyword);
@@ -45,125 +40,45 @@ foreach ($keywords as $word) {
 
 ?>
 
-<!DOCTYPE HTML>
-<head>
-<title>Free Home Shoppe Website Template | Home :: w3layouts</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script> 
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="bootstrap/js/npm.js"></script> 
-<link href="web/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="web/js/jquery-1.7.2.min.js"></script> 
-<script type="text/javascript" src="web/js/move-top.js"></script>
-<script type="text/javascript" src="web/js/easing.js"></script>
-<script type="text/javascript" src="web/js/startstop-slider.js"></script>
-<script language="Javascript" type="text/javascript">
-	
-function submit(np)
-{
-    // Create our XMLHttpRequest object
-    var hr = new XMLHttpRequest();
-    // Create some variables we need to send to our PHP file
-    var url = "ajax recherche.php";
-    var ln = document.getElementById("keyword").value;
-    var vars = "?keyword="+ln+"&pagenum="+np;
-    url=url+vars;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // Access the onreadystatechange event for the XMLHttpRequest object
-    hr.onreadystatechange = function() {
-	    if(hr.readyState == 4 && hr.status == 200) {
-		    var return_data = hr.responseText;
-			document.getElementById("catalog_results").innerHTML = return_data;
-			console.log(return_data);
-			/*
-			if(return_data.indexOf('ok')!=-1)
-			{
-				window.location="http://stackoverflow.com";
 
-			}
-*/}}
-    // Send the data to PHP now... and wait for response to update the status div
-    hr.send(); // Actually execute the request
-}
-</script>
-</head>
+    <script language="Javascript" type="text/javascript">
+
+        function submit(np)
+        {
+            // Create our XMLHttpRequest object
+            var hr = new XMLHttpRequest();
+            // Create some variables we need to send to our PHP file
+            var url = "ajax recherche.php";
+            var ln = document.getElementById("keyword").value;
+            var vars = "?keyword="+ln+"&pagenum="+np;
+            url=url+vars;
+            hr.open("POST", url, true);
+            // Set content type header information for sending url encoded variables in the request
+            hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            // Access the onreadystatechange event for the XMLHttpRequest object
+            hr.onreadystatechange = function() {
+                if(hr.readyState == 4 && hr.status == 200) {
+                    var return_data = hr.responseText;
+                    document.getElementById("catalog_results").innerHTML = return_data;
+                    console.log(return_data);
+                    /*
+                    if(return_data.indexOf('ok')!=-1)
+                    {
+                        window.location="http://stackoverflow.com";
+
+                    }
+        */}}
+            // Send the data to PHP now... and wait for response to update the status div
+            hr.send(); // Actually execute the request
+        }
+    </script>
+
 <body onload="submit(1)">
-<p id="firstsearchkeyword" hidden><?php echo $_GET["keyword"]; ?></p>
-  <div class="wrap">
-	<div class="header">
-		<div class="headertop_desc">
-			<div class="call">
-                <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
-			</div>
-			<div class="account_desc">
-				<ul>
-                    <?php 
-                    	if(isset($_SESSION['user_session'])) {?>
-                    			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/sevices/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
-                				<li><a href="../EspaceClient/sevices/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
-                		<?php  } else { ?>
-					<li><a href="../EspaceClient/sevices/sign-up.php">Créer un compte</a></li>
-					<li><a href="../EspaceClient/sevices/index.php">Se connecter</a></li>
-               <?php } ?>
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="header_top">
-			<div class="logo" >
-				<a href="index.html" ><img src="web/images/logo.png" alt="" /></a>
-			</div>
-            <?php // afficherPanier(); ?>
-			  <script type="text/javascript">
-			function DropDown(el) {
-				this.dd = el;
-				this.initEvents();
-			}
-			DropDown.prototype = {
-				initEvents : function() {
-					var obj = this;
 
-					obj.dd.on('click', function(event){
-						$(this).toggleClass('active');
-						event.stopPropagation();
-					});}}
-			$(function(){
-				var dd = new DropDown( $('#dd') );
-				$(document).click(function() {
-					// all dropdowns
-					$('.wrapper-dropdown-2').removeClass('active');
-				});});
-		</script>
-
-	 <div class="clear"></div>
-  </div>
-	<div class="header_bottom">
-	     	<div class="menu">
-	     		<ul>
-			    	<li><a href="index.php">Acceuil</a></li>
-			    	<li><a href="about.php">A propos</a></li>
-			    	<li><a href="delivery.php">Livraison</a></li>
-			    	<li><a href="news.php">Nouveauté</a></li>
-			    	<li><a href="contact.php">Reclamation</a></li>
-			    	<div class="clear"></div>
-     			</ul>
-	     	</div>
-
-	     	<div class="clear"></div>
-	     </div>	     
-
-   </div>
  <div class="main">
-    <div class="content">
+     <p id="firstsearchkeyword" hidden><?php echo $_GET["keyword"]; ?></p>
+
+     <div class="content">
     	<div class="content_top">
     		<div class="heading">
     		<h3>Products Search :</h3>
