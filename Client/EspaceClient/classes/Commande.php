@@ -42,7 +42,7 @@ class Commande
 
 	public function  detaillefacture($idCommande)
 	{
-		$req="SELECT * from linedecommande inner join produit on linedecommande.IDProduit = produit.IDProduit  where IDCommande=".$idCommande;
+		$req="SELECT * from linedecommande inner join produit on linedecommande.Ref = produit.Ref  where IDCommande=".$idCommande;
 		
 		$res= $this->conn->query($req);
 		return $res->fetchall();

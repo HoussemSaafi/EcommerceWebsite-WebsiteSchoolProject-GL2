@@ -119,7 +119,7 @@ class Commande
 		//var_dump($_SESSION['panier']['idProduit'] );
 		foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 			
-			$res=$this->conn->query("SELECT PrixHT ,TVA,IDProduit from produit where Designation='".$value."'");
+			$res=$this->conn->query("SELECT PrixHT ,TVA,Ref from produit where Designation='".$value."'");
 		//	var_dump($res );
 			$liste=$res->fetchall();
 //var_dump($liste);
@@ -215,10 +215,10 @@ $value/100+8;
 		public function ajouterCommande()
 		{
 			$this->idClient=$_SESSION['client'];
-			$sql="INSERT into commande (DateCreation,EtatPaiment,IDClient,IDReduction,prixtotale) values(CURDATE(),'".$this->etatPaiment."',".$this->idClient.",".$this->idReduction.",".$this->prixTotale.")";
+			$sql="INSERT into commande (DateCreation,EtatPaiment,prixtotale,IDClient) values(CURDATE(),'".$this->etatPaiment.",".$this->prixTotale.",".$this->idClient.")";
 			$resultatreq=$this->conn->query($sql);
-		/*	var_dump($sql);
-			var_dump($resultatreq);*/
+			var_dump($sql);
+			var_dump($resultatreq);
 			if ($resultatreq==false) {
 				echo "errrr";
 			}

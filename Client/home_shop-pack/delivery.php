@@ -65,61 +65,62 @@ $conn=ConnexionBD::getInstance();
 			</div>
 			<div class="account_desc">
 				<ul>
-					
-                    <?php 
-                    	if(isset($_SESSION['user_session']))
-                    	{
-                    		?>	
-                    			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
-              
-                				<li><a href="../EspaceClient/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+
+                    <?php
+                    if(isset($_SESSION['user_session']))
+                    {
+                        ?>
+                        <label class="h5">welcome : <?php print($userRow['username']); ?></label>
+                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+
+                        <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
 
-                		<?php		
-                    	}
+                        <?php
+                    }
 
-                      else
-                      {
+                    else
+                    {
+                        ?>
+                        <li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
+                        <li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
+
+
+                        <?php
+
+                    }
                     ?>
-					<li><a href="../EspaceClient/sign-up">Créer un compte</a></li>
-					<li><a href="../EspaceClient/index">Se connecter</a></li>
-					
 
-               <?php
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="header_top">
+            <div class="logo">
 
-           }
-           ?>
-              
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="header_top">
-			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" width="100px" height="100px/></a>
-			</div>
-			  <?php
-				afficherPanier();
+            </div>
+            <?php
+            afficherPanier();
 
-			?>
-			  <script type="text/javascript">
-			function DropDown(el) {
-				this.dd = el;
-				this.initEvents();
-			}
-			DropDown.prototype = {
-				initEvents : function() {
-					var obj = this;
+            ?>
+            <script type="text/javascript">
+                function DropDown(el) {
+                    this.dd = el;
+                    this.initEvents();
+                }
+                DropDown.prototype = {
+                    initEvents : function() {
+                        var obj = this;
 
-					obj.dd.on('click', function(event){
-						$(this).toggleClass('active');
-						event.stopPropagation();
-					});	
-				}
-			}
+                        obj.dd.on('click', function(event){
+                            $(this).toggleClass('active');
+                            event.stopPropagation();
+                        });
+                    }
+                }
 
-			$(function() {
+
+                $(function() {
 
 				var dd = new DropDown( $('#dd') );
 
@@ -246,30 +247,30 @@ $conn=ConnexionBD::getInstance();
 						<h4>Information</h4>
 						<ul>
 						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
+						<li><a href="contract.php">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
 						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="contract.php">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
 						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
+						<li><a href="contract.php">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html">Site Map</a></li>
+						<li><a href="contract.php">Site Map</a></li>
 						<li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
+							<li><a href="contract.php">Sign In</a></li>
 							<li><a href="index.html">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="contact.html">Help</a></li>
+							<li><a href="contract.php">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
