@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
 include 'class.user.php';
-//session_start();
+session_start();
 	if (isset($_SESSION['user_session'])) 
 	{
 	$user_id = $_SESSION['user_session'];
@@ -19,14 +19,30 @@ include 'class.user.php';
 include 'raccourciPanier.php';
 	    $conn=ConnexionBD::getInstance();
 	    $keyword=$_GET['keyword'] ;
-        $count_results=$conn->query("SELECT * from produit where Designation LIKE '%". $keyword . "%'");
-        $rows=$count_results->fetchAll();
+        $keywords = explode(' ', $keyword);
+        $search_string="SELECT * from produit where ";
+       foreach ($keywords as $word) {
+           $search_string .= "Designation LIKE '%" .$word. "%' OR ";
+       }
+$search_string = substr($search_string, 0, strlen($search_string)-4);
+          $count_results = $conn->query($search_string);
+
+           $rows = $count_results->fetchAll();
+
         $num=count($rows);
         $rpp=10;
         $last_page=ceil($num/$rpp);
         $page_number=1;
-        $name=$conn->query("SELECT Designation from produit where Designation LIKE '%". $keyword."%' ORDER BY Designation DESC LIMIT ".$rpp*($page_number-1).",".$rpp);
-        $result=$name->fetchAll(PDO::FETCH_NUM);
+        $search_string1 ="SELECT Designation from produit where ";
+foreach ($keywords as $word) {
+    $search_string1.="Designation LIKE '%" . $word . "%' OR ";
+
+    }
+     $search_string1 = substr($search_string1, 0, strlen($search_string1)-4);
+    $name = $conn->query($search_string1 ." ORDER BY Designation DESC LIMIT " . $rpp * ($page_number - 1) . "," . $rpp);
+
+    $result = $name->fetchAll(PDO::FETCH_NUM);
+
 ?>
 
 <!DOCTYPE HTML>
@@ -103,10 +119,10 @@ function submit(np)
 			<div class="clear"></div>
 		</div>
 		<div class="header_top">
-			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+			<div class="logo" >
+				<a href="index.html" ><img src="web/images/logo.png" alt="" /></a>
 			</div>
-			  <?php  afficherPanier(); ?>
+            <?php // afficherPanier(); ?>
 			  <script type="text/javascript">
 			function DropDown(el) {
 				this.dd = el;

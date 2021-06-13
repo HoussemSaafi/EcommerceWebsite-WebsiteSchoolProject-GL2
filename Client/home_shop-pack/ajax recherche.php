@@ -22,14 +22,20 @@
 	{
 		*/
 
+//require_once('../EspaceClient/classes/ConnexionBD.php');
 require_once('../../Administrator/classes/ConnexionBD.php');
-//require_once('../../Administrator/classes/ConnexionBD.php');
 
-$conn= ConnexionBD::getInstance();
+$conn=ConnexionBD::getInstance();
 $keyword=$_GET['keyword'] ;
+$keywords = explode(' ', $keyword);
+$search_string="SELECT * from produit where ";
 
-$count_results=$conn->query("SELECT * from produit where Designation LIKE '%".$keyword."%'");
-$rows=$count_results->fetchAll();
+foreach ($keywords as $word) {
+	$search_string .= "Designation LIKE '%" . $word . "%' OR ";
+}
+     $search_string = substr($search_string, 0, strlen($search_string)-4);
+     $count_results=$conn->query($search_string);
+     $rows=$count_results->fetchAll();
 
 
 		$num=count($rows);
@@ -54,9 +60,14 @@ $rows=$count_results->fetchAll();
 		}
 		$promotion=$conn->query("SELECT IDProduit FROM promotion");
         $promotion=$promotion->fetchAll();
+       $keywords = explode(' ', $keyword);
+       $search_string1="SELECT * from produit where ";
+      foreach ($keywords as $word) {
+		  $search_string1 .= "Designation LIKE '%" . $word . "%' OR ";
+	  }
+$search_string1 = substr($search_string1, 0, strlen($search_string1)-4);
 
-
-		$name=$conn->query("SELECT * from produit where Designation LIKE '%". $keyword . "%' ORDER BY Designation DESC LIMIT ".$rpp*($page_number-1).",".$rpp);
+		$name=$conn->query($search_string1. " ORDER BY Designation DESC LIMIT " . $rpp * ($page_number - 1) . "," . $rpp);
 		$result=$name->fetchAll();
 		if (count($result)!=0)
 		{
