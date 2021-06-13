@@ -222,10 +222,10 @@ session_start();
 						<h4>Information</h4>
 						<ul>
 						<li><a href="about.html">About Us</a></li>
-						<li><a href="contract.php">Customer Service</a></li>
+						<li><a href="contact.php">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
 						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contract.php">Contact Us</a></li>
+						<li><a href="contact.php">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
