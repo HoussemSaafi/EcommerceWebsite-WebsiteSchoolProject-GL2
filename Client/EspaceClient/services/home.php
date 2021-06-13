@@ -9,7 +9,8 @@
 	$client_id = $_SESSION['user_session'];
 	
 	$stmt = "SELECT * FROM client WHERE IDclient=:client_id";
-   $req = $auth_client->getBd()->prepare($stmt);
+	$conn=ConnexionBD::getInstance();
+   $req = $conn->prepare($stmt);
 	$req->execute(array(":client_id"=>$client_id));
    $auth_client->Client_connecte($client_id);
 	$userRow=$req->fetch(PDO::FETCH_ASSOC);

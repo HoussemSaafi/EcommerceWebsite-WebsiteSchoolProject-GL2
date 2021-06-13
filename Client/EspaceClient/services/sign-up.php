@@ -73,7 +73,8 @@ if(isset($_POST['btn-signup']))
 		try
 		{
 			$stmt ="SELECT username, email, CIN FROM client WHERE username=:uname OR email=:umail OR CIN =:ucin ";
-            $req = $client->getBd()->prepare($stmt);
+            $conn=ConnexionBD::getInstance();
+			$req = $conn->prepare($stmt);
 			$req->execute(array(':uname'=>$uname, ':umail'=>$umail, 'ucin'=>$ucin));
 			$row=$req->fetch(PDO::FETCH_ASSOC);
 				
