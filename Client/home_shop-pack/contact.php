@@ -12,11 +12,17 @@
 					 		
 					 ?>
 
+		
+					
+
+
+
 					   <form action="ajoutReclamation.php" method="POST">
 					    	<div>
 						    	<span><label>Sujet</label></span>
 						    	<span><input name="Sujet" type="text" class="textbox" ></span>
 						    </div>
+						    <input type="text" value="<?php echo $user_id;?>" name="IDClient"  style="display: none" ></input>
 						    <div>
 						    	<span><label>Message</label></span>
 						    	<span><textarea name="Description"> </textarea></span>
