@@ -4,13 +4,7 @@ require_once('../classes/ConnexionBD.php');
 
 class crudClient
 {
-    /**
-     * @return PDO|null
-     */
-    public function getBd(): ?PDO
-    {
-        return $this->bd;
-    }
+
 //The variable $stmt holds an object of type mysqli_stmt class, which represents a prepared statement. avoid sql injection
 
     protected $bd;

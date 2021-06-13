@@ -1,15 +1,6 @@
 <?php
-
 session_start();
-
-	/**
-	* 
-	*/
-
-
-
 require_once('../../Administrator/classes/ConnexionBD.php');
-
 
 	class Panier 
 	{
@@ -21,32 +12,32 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 		function __construct()
 		{
 			$this->conn= ConnexionBD::getInstance();		}
-		
-        function CreerPanier(){
+
+
+		function CreerPanier(){
 			if(!isset($_SESSION['panier'])){
 
-		$_SESSION['panier'] = array();
-		$_SESSION['panier']['idProduit']  = array();
-		$_SESSION['panier']['qte']  = array();
-		$_SESSION['panier']['prixProduit']  = array();
+				$_SESSION['panier'] = array();
+				$_SESSION['panier']['idProduit']  = array();
+				$_SESSION['panier']['qte']  = array();
+				$_SESSION['panier']['prixProduit']  = array();
+
 
 			}
-				return true;
+			return true;
 		}
+		function AjouterProduit1(){
+			array_push($_SESSION['panier']['idProduit'], $_GET['IDproduit']);
+			array_push($_SESSION['panier']['qte'], $_GET['qte']);
 
-
+		}
 		function AjouterProduit(){
-			echo "hi" ;
-var_dump($_SESSION['thispage']);
-            $id = $_SESSION['idProduit'] ;
-			var_dump($_SESSION['idProduit']);
 
-			$req="SELECT * from produit where Ref='.$id.'";
 
-			//$req="SELECT Designation from produit where Ref='.$id.'";
-			$res=$this->conn->query($req);
-			$res=$res->fetchAll();
-			$_SESSION['idProduit']=$res[0][0];
+//			$req="SELECT * from produit where Ref=".$_SESSION['idProduit'];
+//			$res=$this->conn->query($req);
+//			$res=$res->fetchAll();
+		//	$_SESSION['idProduit']=$res[0];
 			$_SESSION['qte']=$_GET['qte'];
 
 			if (isset($_SESSION['idProduit']) and isset($_SESSION['qte']))
@@ -55,7 +46,7 @@ var_dump($_SESSION['thispage']);
 					$positionProduit=array_search($_SESSION['idProduit'],$_SESSION['panier']['idProduit']);
 					echo $positionProduit;
 					if ($positionProduit!==false) {
-						$requette="SELECT Quantite from produit where Designation='".$_SESSION['idProduit']."'";
+						$requette="SELECT Quantite from produit where Ref='".$_SESSION['idProduit']."'";
 						$resultat=$this->conn->query($requette);
 						$qtedispo=$resultat->fetchAll();
 						foreach ($qtedispo as $v) {
@@ -80,7 +71,7 @@ var_dump($_SESSION['thispage']);
 					}
 					else{
 
-						$requette="SELECT Quantite from produit where Designation='".$_SESSION['idProduit']."'";
+						$requette="SELECT Quantite from produit where Ref='".$_SESSION['idProduit']."'";
 						$resultat=$this->conn->query($requette);
 						$qtedispo=$resultat->fetchAll();
 						foreach ($qtedispo as $v) {
@@ -95,7 +86,7 @@ var_dump($_SESSION['thispage']);
 								array_push($_SESSION['panier']['qte'], $_SESSION['qte']);
 
 								$id=$_SESSION['idProduit'];
-								$sql="SELECT PrixHT,TVA from produit where Designation ='".$id."'";
+								$sql="SELECT PrixHT,TVA from produit where Ref ='".$_SESSION['idProduit']."'";
 								//var_dump($sql);
 								$res= $this->conn->query($sql);
 								///var_dump($res);
@@ -110,6 +101,10 @@ var_dump($_SESSION['thispage']);
 						}
 					}
 
+
+					$sql="SELECT PrixHT,TVA from produit where Ref ='".$_SESSION['idProduit']."'";
+					$res= $this->conn->query($sql);
+					$liste=$res->fetchAll();
 					foreach ($liste as $l) {
 						$price=$l['PrixHT']+$l['PrixHT']*$l['TVA']/100;
 						array_push($_SESSION['panier']['prixProduit'],$price );
@@ -148,7 +143,6 @@ $p=new Panier();
 
 
 $p->CreerPanier();
-echo "hola " ;
 $p->AjouterProduit();
 //header('Location:'.$_SESSION['thispage']);
 

@@ -15,7 +15,13 @@ $i=$_GET["IDProduit"];
 	$_SESSION['thispage']="preview.php?IDProduit=".$i;
 
 	$_SESSION["idProduit"] =$_GET["IDProduit"];
-	var_dump($_SESSION["idProduit"]);
+$conn= ConnexionBD::getInstance();
+
+$result=$conn->query("SELECT * FROM produit WHERE Ref=".$_GET['IDProduit']);
+$res=$result->fetchAll();
+//var_dump($res);
+
+//var_dump($_SESSION["idProduit"]);
 	?>
 
 
@@ -93,7 +99,7 @@ $i=$_GET["IDProduit"];
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="index.html"><img src="web/images/logo.png" alt="" width="100px" height="100px/></a>
 			</div>
 			  		  <?php
 				afficherPanier();
@@ -170,6 +176,7 @@ $i=$_GET["IDProduit"];
 
 									$result=$conn->query("SELECT * FROM produit WHERE Ref=".$_GET['IDProduit']);
 							        $res=$result->fetchAll();
+							       var_dump($res);
 
 							        foreach($res as $r)
 							        {
@@ -295,7 +302,7 @@ $i=$_GET["IDProduit"];
 
 						 Ce produit appartient a la categorie 
 						 <?php 	
-						 		$result_Cat=$conn->query("SELECT DesignationCat,Description FROM categorie WHERE DesignationCat=".$res[0]['ID_Categorie']);
+						 		$result_Cat=$conn->query("SELECT DesignationCat,Description FROM categorie WHERE DesignationCat=(select ID_Categorie from produit where Ref=".$_GET['IDProduit'].")");
 							    $result_Cat=$result_Cat->fetchAll();
 
 								foreach($result_Cat as $r)
@@ -462,7 +469,7 @@ $id_post = $_GET["IDProduit"]; //the post or the page id
 
                   $promotion=$conn->query("SELECT IDProduit FROM promotion");
                   $promotion=$promotion->fetchAll();
-				  $result=$conn->query("SELECT * FROM produit WHERE ID_Categorie=".$res[0]['ID_Categorie']." ORDER BY Date(DateAjout) DESC LIMIT 4");
+				  $result=$conn->query("SELECT * FROM produit WHERE ID_Categorie=(select ID_Categorie from produit where Ref=".$_GET['IDProduit'].") ORDER BY Ref DESC LIMIT 4");
 		          $res=$result->fetchAll();
 		          
 		          foreach($res as $r)

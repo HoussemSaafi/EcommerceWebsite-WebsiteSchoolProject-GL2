@@ -1,9 +1,16 @@
 <?php
 session_start();
-require_once('../classes/ConnexionBD.php');
+require_once('../../Administrator/classes/ConnexionBD.php');
+$conn=ConnexionBD::getInstance();
+if (isset($_SESSION['user_session'])) {
+	$user_id = $_SESSION['user_session'];
 
-		$conn=$conn=ConnexionBD::getInstance();
-
+	$auth_user = new USER();
+	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
+	$stmt->execute(array(":user_id"=>$user_id));
+	$auth_user->User_connecte($user_id);
+	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+}
 $_SESSION['idProduit']=$_POST['idProduit'];
 
 $posmodif= array_search($_SESSION['idProduit'],$_SESSION['panier']['idProduit']);

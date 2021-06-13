@@ -9,7 +9,8 @@
 	$client_id = $_SESSION['user_session'];
 	
 	$stmt = "SELECT * FROM client WHERE IDclient=:client_id";
-   $req = $auth_client->getBd()->prepare($stmt);
+	$conn=ConnexionBD::getInstance();
+   $req = $conn->prepare($stmt);
 	$req->execute(array(":client_id"=>$client_id));
    $auth_client->Client_connecte($client_id);
 	$userRow=$req->fetch(PDO::FETCH_ASSOC);
@@ -62,7 +63,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="dropdown-toggle"><a href="../home_shoppe-pack/index"><span class="glyphicon glyphicon-circle-arrow-left"></span> Retour au site</a></li>
+            <li class="dropdown-toggle"><a href="../../home_shop-pack/index.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Retour au site</a></li>
             <li class="dropdown-toggle"><a href="home.php"><span class="glyphicon glyphicon-home"></span> home</a> &nbsp; </li>
             <li class="dropdown-toggle"> <a href="profile.php"><span class="glyphicon glyphicon-user"></span> profile</a>&nbsp;</li>
            
@@ -105,7 +106,7 @@
                     
                     <div class="btn-group pull-right">
 
-                        <a  href="home.php" type="button" class="btn btn-default btn-xs" title="Rafraichir la discussion"><i class="  glyphicon glyphicon-refresh"></i>
+                        <a href="home.php" type="button" class="btn btn-default btn-xs" title="Rafraichir la discussion"><i class="  glyphicon glyphicon-refresh"></i>
                         </a>
 
                         <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" >
@@ -125,7 +126,7 @@
                 </div>
 
                 <div class="panel-footer">
-                <form action="savechat.php"  method="post" id="reg-form" name="chatform">
+                <form action="savechat.php" method="post" id="reg-form" name="chatform">
                     <div class="input-group">
                         <input id="btn-input" type="text" type="text" name="message" id="message" class="form-control input-sm" placeholder="Type your message here..." required />
                         <span class="input-group-btn">

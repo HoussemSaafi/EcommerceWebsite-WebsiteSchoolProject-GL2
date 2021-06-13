@@ -87,7 +87,7 @@ session_start();
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="index.html"><img src="web/images/logo.png" alt="" width="100px" height="100px/></a>
 			</div>
 			<?php
 				afficherPanier();

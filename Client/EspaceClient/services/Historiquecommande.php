@@ -1,7 +1,7 @@
 <?php
 
   require_once("session.php");
-  require_once("../cruds/crudClient.php");
+require_once("../cruds/crudClient.php");
   $auth_client = new crudClient();
   
   
@@ -11,14 +11,16 @@
   $stmt->execute(array(":client_id"=>$client_id));
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-  $idCommande=$_GET['IDCommande'];
-  $query=$auth_client->runQuery("SELECT linedecommande.Qte , linedecommande.Ref ,produit.Designation, produit.PrixHT, produit.TVA from linedecommande , produit where(linedecommande.IDCommande =:idCommande /*and  linedecommande.Ref = :produit.Ref*/)");
-  $query->execute(array(":idCommande"=>$idCommande));
-  $listeCommande=$query->fetchall();
-   //var_dump($listeCommande);
+
+  $query=$auth_client->runQuery("SELECT IDCommande, DateCreation, EtatPaiment, prixtotale from commande  where IDclient=:client_id");
+  $query->execute(array(":client_id"=>$client_id));
+  $listeCommande=$query->fetchAll();
+//  var_dump($listeCommande);
+
 
 
 ?>
+
 
 
 
@@ -30,7 +32,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
@@ -55,7 +56,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="dropdown-toggle"><a href="../home_shoppe-pack/index"><span class="glyphicon glyphicon-circle-arrow-left"></span> Retour au site</a></li>
+           <li class="dropdown-toggle"><a href="../../home_shop-pack/index.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Retour au site</a></li>
             <li class="dropdown-toggle"><a href="../../../../projet/Client/services/home.php"><span class="glyphicon glyphicon-home"></span> home</a> &nbsp; </li>
             <li class="dropdown-toggle"> <a href="../../../../projet/Client/services/profile.php"><span class="glyphicon glyphicon-user"></span> profile</a>&nbsp;</li>
            
@@ -90,61 +91,55 @@
 <br><br>
 <br><br>
   <div class="row">
-        <div class="panel panel-primary filterable">
+       
+                 <div class="panel panel-primary filterable">
             <div class="panel-heading">
-                <h3 class="panel-title">Liste des Produits </h3>
-                <div class="pull-right">
-                </div>
+                <h3 class="panel-title">Vos commandes </h3>
                 <div class="pull-right">
                     <button class="btn btn-default btn-xs btn-filter" onclick="ShowFilter()"><span class="glyphicon glyphicon-filter"></span> Filter</button>
                 </div>
             </div>
             <table class="table" id="myDiv" hidden>
                 <thead>
-                <tr class="filters">
-                    <th><input type="text" class="form-control" placeholder="Designation Produit" id="myInput1" onkeyup="myFunction(1)"></th>
-                    <th><input type="text" class="form-control" placeholder="Quantite " id="myInput2" onkeyup="myFunction(2)"></th>
-                    <th><input type="text" class="form-control" placeholder="Prix HT Hors Promotion" id="myInput3" onkeyup="myFunction(3)"></th>
-                    <th><input type="text" class="form-control" placeholder="TVA" id="myInput4" onkeyup="myFunction(4)"></th>
-                </tr>
+                    <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="ID" id="myInput0" onkeyup="myFunction(0)" ></th>
+                         <th><input type="text" class="form-control" placeholder="Date Création" id="myInput1" onkeyup="myFunction(1)"></th>
+                        <th><input type="text" class="form-control" placeholder="Etat Paiment" id="myInput2" onkeyup="myFunction(2)"></th>
+                        <th><input type="text" class="form-control" placeholder="Prix Total" id="myInput3" onkeyup="myFunction(3)"></th>
+                    </tr>
                 </thead>
                 <tbody>
             </table>
 
-
-
-        </div>
+                 </div>
   </div>
            <table class="table"  id="myTable">
                <thead>
-               <th>Reference produit</th>
-               <th>Designation Produit</th>
-               <th>Quantite</th>
-               <th>Prix HT Hors Promotion</th>
-               <th>TVA</th>
-
+               <th>ID Commande</th>
+               <th>Date Création</th>
+               <th>Etat Paiment</th>
+               <th>Prix Total</th>
 
                </thead>
                <tbody>
-               <?php
+                    <?php
 
+                                                    
+                    foreach($listeCommande as $liste) {
+?>
+                        <tr>
+                            <td><b><?= $liste[0] ?></b></td>
+                        <td><b><?= $liste[1] ?></b></td>
+                        <td><b><?=$liste[2] ?></b></td>
+                        <td><b><?= $liste[3] ?></b></td>
+                            <td><a href ="consultercommande.php?IDCommande=<?php echo $liste[0];?>" class="btn btn-primary" >Consulter </a>   </td>
 
-               foreach($listeCommande as $liste) {
-                   ?>
-                   <tr>
-                       <td><b><?= $liste[1] ?></b></td>
-                       <td><b><?= $liste[2] ?></b></td>
-                       <td><b><?= $liste[0] ?></b></td>
-                       <td><b><?= $liste[3] ?></b></td>
-                       <td><b><?= $liste[4] ?> %</b></td>
-
-
-                   </tr>
-                   <?php
-               }
-               ?>
-               </tbody>
-           </table>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -160,6 +155,7 @@
        </div>
 
 <script src="../bootstrap/js/bootstrap.min.js"></script>
+
 <script>
     function myFunction(K) {
         var input, filter, table, tr, td, i, txtValue;
@@ -188,6 +184,5 @@
         }
     }
 </script>
-
 </body>
 </html>

@@ -6,6 +6,7 @@ include 'commande.php';
 
 
 
+
 if (isset($_SESSION['user_session'])) {
 	$user_id = $_SESSION['user_session'];
 
@@ -86,7 +87,7 @@ ob_start();
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="index.html"><img src="web/images/logo.png" alt="" width="100px" height="100px/></a>
 			</div>
 			<?php
 				afficherPanier();
