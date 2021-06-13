@@ -19,7 +19,7 @@ $conn= ConnexionBD::getInstance();
 
 $result=$conn->query("SELECT * FROM produit WHERE Ref=".$_GET['IDProduit']);
 $res=$result->fetchAll();
-var_dump($res);
+//var_dump($res);
 
 //var_dump($_SESSION["idProduit"]);
 	?>
