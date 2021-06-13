@@ -189,7 +189,7 @@ $liste=$c->afficherlignepourClient($listelivraison[0]['IDCommande']);
             <div id="page-inner">
             <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Detailles livraison</h1>
+                        <h1 class="page-head-line">Details livraison</h1>
 
                     </div>
                     <div class="row shop-tracking-status">
