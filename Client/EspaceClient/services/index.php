@@ -7,7 +7,7 @@ $login = new crudClient();
 
 if($login->is_loggedin()!="")
 {
-	$login->redirect('home.php');
+	$login->redirect('profile.php');
 }
 
 if(isset($_POST['btn-login']))
@@ -36,7 +36,7 @@ if(isset($_POST['btn-login']))
       {
           $client_id = $_SESSION['user_session'];
         $login->Client_connecte($client_id);
-        $login->redirect('home.php');
+        $login->redirect('profile.php');
       }
       else
       {
@@ -155,7 +155,7 @@ if(isset($_POST['btn-login']))
         
         <div class="form-group">
             <button type="submit" name="btn-login" class="btn btn-primary">
-                	<i class="glyphicon glyphicon-log-in"></i> &nbsp; SE CONNECTER
+                	<i class="glyphicon glyphicon-log-in"></i> &nbsp; Sign In
             </button>
         </div>  
       	<br />

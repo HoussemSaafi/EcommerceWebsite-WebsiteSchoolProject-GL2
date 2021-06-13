@@ -99,7 +99,6 @@ else if($unewpass!=$unewpassval )
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown-toggle"><a href="../../home_shop-pack/index.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Retour au site</a></li>
-            <li class="dropdown-toggle"><a href="home.php"><span class="glyphicon glyphicon-home"></span> home</a> &nbsp; </li>
             <li class="dropdown-toggle"> <a href="profile.php"><span class="glyphicon glyphicon-user"></span> profile</a>&nbsp;</li>
            
           </ul>

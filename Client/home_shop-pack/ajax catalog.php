@@ -1,7 +1,6 @@
 <?php
 
 require_once('../../Administrator/classes/ConnexionBD.php');
-
 $conn= ConnexionBD::getInstance();
 /*********************************************************************************************************************/
 //1- établir la cnx avec la base de données
@@ -49,14 +48,18 @@ $req="SELECT * from produit where Ref='.$keyword.'";
         $promotion=$promotion->fetchAll();
 
 
-		$name=$conn->query("SELECT * from produit where ID_Categorie ='.$keyword.' ORDER BY Designation DESC LIMIT ".$rpp*($page_number-1).",".$rpp);
-		$result=$name->fetchAll();
-		if (count($result)!=0)
+		//$name=$conn->query("SELECT * from produit where ID_Categorie ='.$keyword.' ORDER BY Designation DESC LIMIT ".$rpp*($page_number-1).",".$rpp);
+
+$name=$conn->query('SELECT * from produit where ID_Categorie="'.$keyword.'" ORDER BY Designation DESC LIMIT '.$rpp*($page_number-1).",".$rpp);
+
+$result=$name->fetchAll();
+
+if (count($result) !=0)
 		{
 		echo '<div id="catalog_results" class ="selection group">';
 		foreach($result as $r)
 		{
-					$exist=0;
+				$exist=0;
 		            echo '<div class="grid_1_of_4 images_1_of_4">';
 		            echo '<a href="preview.php?IDProduit='.$r['Ref'].'"><div style="width: 250px; height: 250px;;overflow:hidden"><img  src="data:image/jpeg;base64,'.base64_encode($r['ImgProduit']).'" /></div></a>';
 		            echo ' <h2>'.$r['Designation'].' </h2>';

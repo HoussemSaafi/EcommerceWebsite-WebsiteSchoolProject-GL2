@@ -6,12 +6,17 @@ $req="SELECT * from produit where ID_Categorie='.$keyword.'";
 $count_results=$conn->query($req);
 
        $rows=$count_results->fetchAll();
+
         $num=count($rows);
+
         $rpp=10;
+
         $last_page=ceil($num/$rpp);
         $page_number=1;
         $req1="SELECT Designation from produit where ID_Categorie ='.$keyword.' ORDER BY Designation DESC LIMIT ".$rpp*($page_number-1).",".$rpp;
+
         $name=$conn->query($req1);
+
         $result=$name->fetchAll(PDO::FETCH_NUM);
         /*  }*/
 
@@ -60,7 +65,9 @@ function submit(np)
     		</br>
 
 
-			<div id="catalog_results" class ="selection group"></div>
+			<div id="catalog_results" class ="selection group">
+
+            </div>
 		</div>
 
 

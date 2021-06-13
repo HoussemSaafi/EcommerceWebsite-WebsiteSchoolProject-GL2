@@ -330,7 +330,7 @@ class USER
        try
 		{   
 		
-			$stmt = $this->conn->query("UPDATE users SET  etatCompte  = 0 WHERE IDclient = ".$user_id);
+			$stmt = $this->conn->query("UPDATE client SET  etatCompte  = 0 WHERE IDclient = ".$user_id);
 												  
 		
 			return $stmt;	
@@ -347,7 +347,7 @@ class USER
 			try
 		{   
 		
-			$stmt = $this->conn->query("UPDATE users SET  etatconnexion  = 1 WHERE IDclient = ".$user_id);
+			$stmt = $this->conn->query("UPDATE client SET  etatconnexion  = 1 WHERE IDclient = ".$user_id);
 												  
 		
 			return $stmt;	

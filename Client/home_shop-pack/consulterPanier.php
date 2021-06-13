@@ -64,8 +64,8 @@ if (isset($_SESSION['user_session'])) {
                     else
                     {
                         ?>
-                        <li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
-                        <li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
+                        <li><a href="../EspaceClient/services/sign-up.php">Sign Up</a></li>
+                        <li><a href="../EspaceClient/services/index.php">Sign in</a></li>
 
 
                         <?php
@@ -100,8 +100,18 @@ if (isset($_SESSION['user_session'])) {
                         });
                     }
                 }
+                $(function() {
 
-                <div class="clear"></div>
+                    var dd = new DropDown( $('#dd') );
+
+                    $(document).click(function() {
+                        // all dropdowns
+                        $('.wrapper-dropdown-2').removeClass('active');
+                    });
+
+                });
+            </script>
+	 <div class="clear"></div>
   </div>
             </script>
 	<div class="header_bottom">
@@ -344,30 +354,30 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 						<h4>Information</h4>
 						<ul>
 						<li><a href="about.html">About Us</a></li>
-						<li><a href="contract.php">Customer Service</a></li>
+						<li><a href="contact.php">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
 						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contract.php">Contact Us</a></li>
+						<li><a href="contact.php">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
 						<li><a href="about.html">About Us</a></li>
-						<li><a href="contract.php">Customer Service</a></li>
+						<li><a href="contact.php">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contract.php">Site Map</a></li>
+						<li><a href="contact.php">Site Map</a></li>
 						<li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contract.php">Sign In</a></li>
+							<li><a href="contact.php">Sign In</a></li>
 							<li><a href="index.html">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="contract.php">Help</a></li>
+							<li><a href="contact.php">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">

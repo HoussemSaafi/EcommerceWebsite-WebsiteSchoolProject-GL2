@@ -74,6 +74,53 @@ foreach ($keywords as $word) {
     </script>
 
 <body onload="submit(1)">
+<p id="firstsearchkeyword" hidden><?php echo $_GET["keyword"]; ?></p>
+  <div class="wrap">
+	<div class="header">
+		<div class="headertop_desc">
+			<div class="call">
+                <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+			</div>
+			<div class="account_desc">
+				<ul>
+                    <?php 
+                    	if(isset($_SESSION['user_session'])) {?>
+                    			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
+                    		    <li><a href="../EspaceClient/sevices/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                				<li><a href="../EspaceClient/sevices/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+                		<?php  } else { ?>
+					<li><a href="../EspaceClient/sevices/sign-up.php">Créer un compte</a></li>
+					<li><a href="../EspaceClient/sevices/index.php">Se connecter</a></li>
+               <?php } ?>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="header_top">
+			<div class="logo">
+				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+			</div>
+			  <?php  afficherPanier(); ?>
+			  <script type="text/javascript">
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});}}
+			$(function(){
+				var dd = new DropDown( $('#dd') );
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-2').removeClass('active');
+				});});
+		</script>
 
  <div class="main">
      <p id="firstsearchkeyword" hidden><?php echo $_GET["keyword"]; ?></p>
@@ -161,30 +208,30 @@ foreach ($keywords as $word) {
 						<h4>Information</h4>
 						<ul>
 						<li><a href="about.html">About Us</a></li>
-						<li><a href="contract.php">Customer Service</a></li>
+						<li><a href="contact.php">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
 						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contract.php">Contact Us</a></li>
+						<li><a href="contact.php">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
 						<li><a href="about.html">About Us</a></li>
-						<li><a href="contract.php">Customer Service</a></li>
+						<li><a href="contact.php">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contract.php">Site Map</a></li>
+						<li><a href="contact.php">Site Map</a></li>
 						<li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contract.php">Sign In</a></li>
+							<li><a href="contact.php">Sign In</a></li>
 							<li><a href="index.html">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="contract.php">Help</a></li>
+							<li><a href="contact.php">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">

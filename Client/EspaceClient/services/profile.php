@@ -1,11 +1,10 @@
 <?php
 
   require_once("session.php");
-
+require_once("../cruds/crudChat.php");
 require_once("../cruds/crudClient.php");;
   $auth_client = new crudClient();
-  
-  
+  $Chat= new crudChat();
   $client_id = $_SESSION['user_session'];
   
   $stmt = $auth_client->runQuery("SELECT * FROM client WHERE IDclient=:client_id");
@@ -15,7 +14,7 @@ require_once("../cruds/crudClient.php");;
 
 
 
-
+  $nombre_en_ligne= $Chat->numberUser_connecte();
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -46,7 +45,6 @@ require_once("../cruds/crudClient.php");;
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
            <li class="dropdown-toggle"><a href="../../home_shop-pack/index.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Retour au site</a></li>
-            <li class="dropdown-toggle"><a href="home.php"><span class="glyphicon glyphicon-home"></span> home</a> &nbsp; </li>
             <li class="dropdown-toggle"> <a href="profile.php"><span class="glyphicon glyphicon-user"></span> profile</a>&nbsp;</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -84,7 +82,9 @@ require_once("../cruds/crudClient.php");;
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://image.freepik.com/vecteurs-libre/icone-d&-39;utilisateur-de-sexe-masculin_17-810120247.jpg" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://image.freepik.com/vecteurs-libre/icone-d&-39;utilisateur-de-sexe-masculin_17-810120247.jpg" class="img-circle img-responsive">
+
+                </div>
                 
                 
                 <div class=" col-md-9 col-lg-9 "> 
@@ -131,8 +131,8 @@ require_once("../cruds/crudClient.php");;
               </div>
             </div>
 
-                 <div class="panel-footer">
-                        <a href="home.php" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+              <div class="panel-footer">
+                        <a type="button"  class="btn btn-sm btn-primary"  data-toggle="collapse"  data-parent="#accordion" href="#collapseOne"  ><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
                             <a href="ModifierProfile.php" type="button" class="btn btn-sm btn-warning" title="Modifier vos informations"><i class="glyphicon glyphicon-edit"></i></a>
                              <a href="ModifierPassword.php" type="button" class="btn btn-sm btn-warning" title="Modifier Mot de passe"><i class="glyphicon glyphicon-lock"></i></a>
@@ -172,11 +172,101 @@ require_once("../cruds/crudClient.php");;
     </div>
 
 </div>
+<div class="container" style="position: absolute; bottom:0px">
+    <div class="row" >
+
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment "></span> Chat
+
+                    <div class="btn-group pull-right">
+
+                        <a href="profile.php" type="button" class="btn btn-default btn-xs" title="Rafraichir la discussion"><i class="  glyphicon glyphicon-refresh"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" >
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="panel-collapse collapse" id="collapseOne">
+                    <div class="panel-bod" id="reload"  >
+
+
+                    </div>
+
+                    <div class="panel-footer">
+                        <form action="savechat.php" method="post" id="reg-form" name="chatform">
+                            <div class="input-group">
+                                <input id="btn-input" type="text" type="text" name="message" id="message" class="form-control input-sm" placeholder="Type your message here..." required />
+                                <span class="input-group-btn">
+                           <input class="btn btn-warning btn-sm" id="btn-chat" type="submit" value="Envoyer"  />
+                        </span>
+
+                            </div>
+                        </form>
+
+                        <a
+                                class="btn btn-info btn-xs" title="Nombre de personne connecté"><b>Nombre d'utilisateur connectés:&nbsp;<?php print($nombre_en_ligne); ?></b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
 
 
 
 
 <script src="../bootstrap/js/bootstrap.min.js"></script>
+<script>
+
+    $(document).ready(function(){
+        setInterval(function(){
+            $("#reload").load('loadchat.php')
+        }, 500);
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+
+
+        $(document).on('submit', '#reg-form', function()
+        {
+
+
+
+            var data = $(this).serialize();
+            // a text string in standard URL-encoded notation
+
+            $.ajax({
+
+                type : 'POST',
+                url  : 'savechat.php',
+                data : data,
+                success :  function(data)
+                {
+                    $("#reg-form")[0].reset();
+                }
+            });
+            return false;
+        });
+    });
+
+
+</script>
 
 </body>
 </html>
