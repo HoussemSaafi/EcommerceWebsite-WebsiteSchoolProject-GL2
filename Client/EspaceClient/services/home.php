@@ -105,7 +105,7 @@
                     
                     <div class="btn-group pull-right">
 
-                        <a  href="home.php" type="button" class="btn btn-default btn-xs" title="Rafraichir la discussion"><i class="  glyphicon glyphicon-refresh"></i>
+                        <a href="home.php" type="button" class="btn btn-default btn-xs" title="Rafraichir la discussion"><i class="  glyphicon glyphicon-refresh"></i>
                         </a>
 
                         <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" >
@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="panel-footer">
-                <form action="savechat.php"  method="post" id="reg-form" name="chatform">
+                <form action="savechat.php" method="post" id="reg-form" name="chatform">
                     <div class="input-group">
                         <input id="btn-input" type="text" type="text" name="message" id="message" class="form-control input-sm" placeholder="Type your message here..." required />
                         <span class="input-group-btn">

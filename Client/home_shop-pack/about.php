@@ -226,7 +226,7 @@ include 'raccourciPanier.php';
 							<li><a href="web/contact.html">Sign In</a></li>
 							<li><a href="web/index.html">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
-							<li><a href="../services/consulterLivraison.php">Track My Order</a></li>
+							<li><a href="../EspaceClient/services/consulterLivraison.php">Track My Order</a></li>
 							<li><a href="web/contact.html">Help</a></li>
 						</ul>
 				</div>

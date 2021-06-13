@@ -132,7 +132,7 @@ require_once("../cruds/crudClient.php");
                                             <th><?php echo date($l[3]); ?></th>
                                             <th><?php echo $l[4]; ?></th>
                                             <th><?php echo $l[2]; ?></th>
-                                            <th><a  href="consulterLivraison.php?idlivraison=<?php echo $l[0]; ?>" class="btn btn-primary">Consulter</a></th>
+                                            <th><a href="consulterLivraison.php?idlivraison=<?php echo $l[0]; ?>" class="btn btn-primary">Consulter</a></th>
                                            
                                             </tr>
                                             </form>

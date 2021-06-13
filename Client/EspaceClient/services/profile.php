@@ -134,8 +134,8 @@ require_once("../cruds/crudClient.php");;
                  <div class="panel-footer">
                         <a href="home.php" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
-                            <a  href="ModifierProfile.php" type="button" class="btn btn-sm btn-warning" title="Modifier vos informations"><i class="glyphicon glyphicon-edit"></i></a>
-                             <a  href="ModifierPassword.php"type="button" class="btn btn-sm btn-warning" title="Modifier Mot de passe"><i class="glyphicon glyphicon-lock"></i></a>
+                            <a href="ModifierProfile.php" type="button" class="btn btn-sm btn-warning" title="Modifier vos informations"><i class="glyphicon glyphicon-edit"></i></a>
+                             <a href="ModifierPassword.php" type="button" class="btn btn-sm btn-warning" title="Modifier Mot de passe"><i class="glyphicon glyphicon-lock"></i></a>
                              <!-- Button trigger modal -->
                            
                             <a  type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#myModal" title="Desactiver Compte"><i class="glyphicon glyphicon-remove"></i></a>
@@ -152,8 +152,8 @@ require_once("../cruds/crudClient.php");;
                                     En désactivant votre compte vous n'aurez plus le droit à l'accés à notre site en tant qu'utilisateurs .Si vous voulez réactiver votre compte faudra envoyer une rèclamation!! 
                                   </div>
                                   <div class="modal-footer " >
-                                      <a  href="logout.php?desactiver=$uid" type="button" class="btn btn-sm btn-danger"  title="Desactiver Compte"><i class="glyphicon glyphicon-thumbs-down">&nbsp;Oui</i></a>
-                                     <a  href="profile.php" type="button" class="btn btn-sm btn-success"  ><i class="glyphicon glyphicon-thumbs-up">&nbsp;Non</i></a>
+                                      <a href="logout.php?desactiver=$uid" type="button" class="btn btn-sm btn-danger" title="Desactiver Compte"><i class="glyphicon glyphicon-thumbs-down">&nbsp;Oui</i></a>
+                                     <a href="profile.php" type="button" class="btn btn-sm btn-success"  ><i class="glyphicon glyphicon-thumbs-up">&nbsp;Non</i></a>
                                     
                                   </div>
                                 </div>
