@@ -1,5 +1,7 @@
 
-<?php require ("HeaderLayout.php"); ?>
+<?php require ("HeaderLayout.php");
+$_SESSION['thispage']="news.php";
+?>
 <div class="main">
     <div class="content">
     	<div class="image group">

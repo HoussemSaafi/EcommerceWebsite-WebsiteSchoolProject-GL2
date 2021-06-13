@@ -1,6 +1,8 @@
 
 <?php
-require ("HeaderLayout.php"); ?>
+require ("HeaderLayout.php");
+$_SESSION['thispage']="about.php";
+?>
  <div class="main">
     <div class="content">
     	<div class="section group">

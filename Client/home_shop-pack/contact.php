@@ -1,4 +1,6 @@
 <?php require ("HeaderLayout.php");
+$_SESSION['thispage']="cantact.php";
+
 ?>
  <div class="main">
     <div class="content">

@@ -5,7 +5,7 @@
 */
 require_once('../../Administrator/classes/ConnexionBD.php');
 
-session_start();
+//session_start();
 
 
 class Commande

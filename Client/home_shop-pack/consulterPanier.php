@@ -1,142 +1,24 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <?php
-include 'class.user.php';
-if (!isset($_SESSION)) {
-    session_start();
-    //print_r($_SESSION);
-}
-if (isset($_SESSION['user_session'])) {
-	$user_id = $_SESSION['user_session'];
 
-	$auth_user = new USER();
-	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
-	$stmt->execute(array(":user_id"=>$user_id));
-     $auth_user->User_connecte($user_id);
-	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-}
-	
-	include 'raccourciPanier.php';
+
+require ("HeaderLayout.php");
 	$_SESSION['thispage']="consulterPanier.php";
+$conn=ConnexionBD::getInstance();
 
 	?>
-<!DOCTYPE HTML>
-<head>
-<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-<title>Free Home Shoppe Website Template | Home :: w3layouts</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="web/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="web/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="web/js/move-top.js"></script>
-<script type="text/javascript" src="web/js/easing.js"></script>
-<script type="text/javascript" src="web/js/startstop-slider.js"></script>
-</head>
-<body>
-  <div class="wrap">
-	<div class="header">
-		<div class="headertop_desc">
-			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
-			</div>
-			<div class="account_desc">
-				<ul>
-
-                    <?php
-                    if(isset($_SESSION['user_session']))
-                    {
-                        ?>
-                        <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
-
-                        <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+<style>
+    .swiper-slide{
+        background-position: center;
+        background-size: cover;
+        width: 250px;
+        height:350px ;
+    }
 
 
-                        <?php
-                    }
-
-                    else
-                    {
-                        ?>
-                        <li><a href="../EspaceClient/services/sign-up.php">Sign Up</a></li>
-                        <li><a href="../EspaceClient/services/index.php">Sign in</a></li>
-
-
-                        <?php
-
-                    }
-                    ?>
-
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="header_top">
-            <div class="logo">
-
-            </div>
-            <?php
-            afficherPanier();
-
-            ?>
-            <script type="text/javascript">
-                function DropDown(el) {
-                    this.dd = el;
-                    this.initEvents();
-                }
-                DropDown.prototype = {
-                    initEvents : function() {
-                        var obj = this;
-
-                        obj.dd.on('click', function(event){
-                            $(this).toggleClass('active');
-                            event.stopPropagation();
-                        });
-                    }
-                }
-                $(function() {
-
-                    var dd = new DropDown( $('#dd') );
-
-                    $(document).click(function() {
-                        // all dropdowns
-                        $('.wrapper-dropdown-2').removeClass('active');
-                    });
-
-                });
-            </script>
-	 <div class="clear"></div>
-  </div>
-            </script>
-	<div class="header_bottom">
-	     	<div class="menu">
-	     		<ul>
-			    	<li><a href="index.php">Acceuil</a></li>
-			    	<li><a href="about.php">A propos</a></li>
-			    	<li><a href="delivery.php">Livraison</a></li>
-			    	<li><a href="news.php">Nouveauté</a></li>
-			    	<li><a href="contact.php">Reclamation</a></li>
-			    	<div class="clear"></div>
-     			</ul>
-	     	</div>
-	     	<div class="search_box">
-	     		<form>
-	     			<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
-	     		</form>
-	     	</div>
-	     	<div class="clear"></div>
-	     </div>	     	
-   </div>
-
+</style>
 <br><br>
 <br><br>
-<br><br>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -244,7 +126,7 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
             </table>
         </div>
     </div>
-</div>
+
  <?php 
           }
 
@@ -307,109 +189,87 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
     		</div>
     		<div class="clear"></div>
     	</div>
-   <div class="section group">
-				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="#"><img src="web/images/new-pic1.jpg" alt=""></a>
-					<div class="price" style="border:none">
-					       		<div class="add-cart" style="float:none">								
-									<h4><a href="#">Add to Cart</a></h4>
-							     </div>
-							 <div class="clear"></div>
-					</div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="#"><img src="web/images/new-pic2.jpg" alt=""></a>
-					 <div class="price" style="border:none">
-					       		<div class="add-cart" style="float:none">								
-									<h4><a href="#">Add to Cart</a></h4>
-							     </div>
-							 <div class="clear"></div>
-					</div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="#"><img src="web/images/new-pic4.jpg" alt=""></a>
-					<div class="price" style="border:none">
-					       		<div class="add-cart" style="float:none">								
-									<h4><a href="#">Add to Cart</a></h4>
-							     </div>
-							 <div class="clear"></div>
-					</div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-				 <img src="web/images/new-pic3.jpg" alt="">
-					 <div class="price" style="border:none">
-					       		<div class="add-cart" style="float:none">								
-									<h4><a href="#">Add to Cart</a></h4>
-							     </div>
-							 <div class="clear"></div>
-					</div>
-				</div>
-			</div>
+<br>
+<br>
+<div class="section group">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+<?php
+
+$promotion=$conn->query("SELECT IDProduit FROM promotion");
+$promotion=$promotion->fetchAll();
+$result=$conn->query("SELECT * FROM produit ");
+$res=$result->fetchAll();
+
+foreach($res as $r)
+{
+    $exist=0;
+    echo '<div class="swiper-slide"   style=“display:bloc;margin-left:100px >';
+    echo '<a href="preview.php?IDProduit='.$r['Ref'].'"><div style="width: 250px; height: 250px;;overflow:hidden"><img src="data:image;base64,'.$r['ImgProduit'].'"style=max-width:300px;width:100% /></div></a>';
+    echo ' <h2>'.$r['Designation'].' </h2>';
+    echo '<div class="price-details">';
+    echo '<div class="price-number">';
+    foreach ($promotion as $prom) {
+        if($prom['IDProduit']==$r['IDProduit']){
+            $exist=1;
+
+        }
+    }
+
+    if($exist==1){echo '<p style="text-decoration: line-through"><span class="rupees">'.$r['PrixHT'].' DT</span></p>';
+        $tauxprom=$conn->query("SELECT TauxDeProm FROM promotion where IDProduit=".$r['IDProduit']);
+        $tauxprom=$tauxprom->fetch();
+        $newPrice=$r['PrixHT'] - ($r['PrixHT']*$tauxprom[0]/100);
+        echo '<p><span class="rupees" style="Color:red">'.$newPrice.' DT</span></p>';
+    }
+    else{
+        echo '<p><span class="rupees">'.$r['PrixHT'].' DT</span></p>';
+    }
+
+    echo '</div>';
+    echo '<div class="add-cart">';
+    echo '<h4><a href="preview.php?IDProduit='.$r['Ref'].'">Inspect</a></h4>';
+    echo '</div>';
+    echo '<div class="clear"></div>';
+    echo '</div>';
+    echo '</div>';
+
+}  ?>
+
+            </div>
         </div>
-				
-   <div class="footer">
-   	  <div class="wrap">	
-	     <div class="section group">
-				<div class="col_1_of_4 span_1_of_4">
-						<h4>Information</h4>
-						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.php">Customer Service</a></li>
-						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contact.php">Contact Us</a></li>
-						</ul>
-					</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h4>Why buy from us</h4>
-						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.php">Customer Service</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.php">Site Map</a></li>
-						<li><a href="#">Search Terms</a></li>
-						</ul>
-				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h4>My account</h4>
-						<ul>
-							<li><a href="contact.php">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
-							<li><a href="#">My Wishlist</a></li>
-							<li><a href="#">Track My Order</a></li>
-							<li><a href="contact.php">Help</a></li>
-						</ul>
-				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h4>Contact</h4>
-						<ul>
-							<li><span>+91-123-456789</span></li>
-							<li><span>+00-123-000000</span></li>
-						</ul>
-						<div class="social-icons">
-							<h4>Follow Us</h4>
-					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="web/images/twitter.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="web/images/skype.png" alt="" /> </a></li>
-							      <li><a href="#" target="_blank"> <img src="web/images/dribbble.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"> <img src="web/images/linkedin.png" alt="" /></a></li>
-							      <div class="clear"></div>
-						     </ul>
-   	 					</div>
-				</div>
-			</div>			
-        </div>
-        <div class="copy_right">
-				<p>Company Name © All rights Reseverd | Design by  <a href="http://w3layouts.com">W3Layouts</a> </p>
-		   </div>
     </div>
+</div>
+
+<?php   require("footerLayout.php");  ?>
    <script type="text/javascript">
 		$(document).ready(function() {			
 			$().UItoTop({ easingType: 'easeOutQuart' });
 			
 		});
 	</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate:15,
+            stretch: 0,
+            depth:20 ,
+            modifier: 1,
+            speed: 200 ,
+            slideShadows: false,
+            breakpoint: 768,
+
+        },
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+</script>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
 </body>
 </html>
