@@ -1,7 +1,7 @@
 
 <?php
 include 'class.user.php';
-session_start();
+if(!$_SESSION) session_start();
 if (isset($_SESSION['user_session'])) {
     $user_id = $_SESSION['user_session'];
     $auth_user = new USER();

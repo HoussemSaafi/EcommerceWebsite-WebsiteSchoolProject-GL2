@@ -100,20 +100,21 @@ if (isset($_SESSION['user_session'])) {
                         });
                     }
                 }
-                $(function() {
 
-                    var dd = new DropDown( $('#dd') );
+			$(function() {
 
-                    $(document).click(function() {
-                        // all dropdowns
-                        $('.wrapper-dropdown-2').removeClass('active');
-                    });
+				var dd = new DropDown( $('#dd') );
 
-                });
-            </script>
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-2').removeClass('active');
+				});
+
+			});
+
+		</script>
 	 <div class="clear"></div>
   </div>
-            </script>
 	<div class="header_bottom">
 	     	<div class="menu">
 	     		<ul>
@@ -178,15 +179,15 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
                         <td class="col-sm-1 col-md-1" style="text-align: center">
                         <input type="hidden" name ="idProduit" value=<?php 
                             echo $value;
-                            ?>></input>
+                            ?></input>
                         <button type="submit" class="btn btn-primary"><i  class="glyphicon glyphicon-pencil"></i></button>
 
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong><?php 
-                            echo $_SESSION['panier']['prixProduit'][$key];
+                            echo $_SESSION['panier']['prixProduit'][$value];
                             ?> TND</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong><?php 
-                            echo $_SESSION['panier']['prixProduit'][$key]*$_SESSION['panier']['qte'][$key];
+                            echo $_SESSION['panier']['prixProduit'][$value]*$_SESSION['panier']['qte'][$key];
                             ?> TND</strong></td>
                         <td class="col-sm-1 col-md-1">
                         <a href=<?php 
@@ -207,7 +208,7 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
                         <?php
                         $prix=0;
                         foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
-                            $prix+= $_SESSION['panier']['prixProduit'][$key]*$_SESSION['panier']['qte'][$key];
+                            $prix+= $_SESSION['panier']['prixProduit'][$value]*$_SESSION['panier']['qte'][$key];
 
                         }
                             echo $prix;
@@ -356,14 +357,14 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 						<li><a href="about.html">About Us</a></li>
 						<li><a href="contact.php">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.html">Orders and Returns</a></li>
+						<li><a href="delivery.php">Orders and Returns</a></li>
 						<li><a href="contact.php">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
+						<li><a href="about.php">About Us</a></li>
 						<li><a href="contact.php">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
 						<li><a href="contact.php">Site Map</a></li>
@@ -374,7 +375,7 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 					<h4>My account</h4>
 						<ul>
 							<li><a href="contact.php">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
+							<li><a href="index.php">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
 							<li><a href="contact.php">Help</a></li>
@@ -401,7 +402,7 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 			</div>			
         </div>
         <div class="copy_right">
-				<p>Company Name © All rights Reseverd | Design by  <a href="http://w3layouts.com">W3Layouts</a> </p>
+				<p>Gl2-2020/2021</a> </p>
 		   </div>
     </div>
    <script type="text/javascript">

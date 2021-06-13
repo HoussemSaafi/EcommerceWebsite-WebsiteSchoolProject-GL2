@@ -89,8 +89,9 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 								$sql="SELECT PrixHT,TVA from produit where Ref ='".$_SESSION['idProduit']."'";
 								//var_dump($sql);
 								$res= $this->conn->query($sql);
-								///var_dump($res);
+								//var_dump($res);
 								$liste=$res->fetchAll();
+								var_dump($liste);
 								foreach ($liste as $value) {
 									echo $value;
 								}	}
@@ -117,7 +118,7 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 				}
 				foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 					echo $value."<br>";
-					echo $_SESSION['panier']['prixProduit'][$key];
+					echo $_SESSION['panier']['prixProduit'][$value];
 				}
 				foreach ($_SESSION['panier']['qte'] as $key => $value) {
 					echo $value."<br>";

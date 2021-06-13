@@ -4,10 +4,11 @@ include ("../Services/CrudProduit.php");
 
 
 require '../phpmailer/PHPMailerAutoload.php';
-
 $ID = $_GET['ID'];
+var_dump($ID);
 $cc=new CrudProduit();
 $produit = $cc->getProduit($ID);
+var_dump($produit);
 
 if($produit)
 {
@@ -49,6 +50,8 @@ if($produit)
 
 else
 {
+    var_dump($produit);
+    var_dump("error");
     print_r($cc->conn->errorInfo());
 }
 ?>

@@ -9,7 +9,7 @@ include_once 'homePageLayout.php'
                     <div class="panel-heading"> <img src="../assets/images/add_product_icon.png">Ajouter produit </div>
                     <div class="panel-body">
                     <div style="Float: Left">
-                     <form action="../Controllers/AjoutProduit.php" method="POST" enctype="multipart/form-data">
+                     <form action="../Controllers/ajoutProduit.php" method="POST" enctype="multipart/form-data">
 
                     <fieldset>
                        

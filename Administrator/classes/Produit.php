@@ -44,6 +44,14 @@ class Produit
     }
 
     /**
+     * @param mixed $ID_Categorie
+     */
+    public function setIDCategorie($ID_Categorie)
+    {
+        $this->ID_Categorie = $ID_Categorie;
+    }
+
+    /**
      * @param mixed $ImgProduit
      */
     public function setImgProduit($ImgProduit)

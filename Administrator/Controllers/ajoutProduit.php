@@ -12,6 +12,7 @@ if (isset($_POST['id']) and isset($_POST['Designation'])and isset($_POST['prix']
    // $Ref,$PrixHT,$TVA,$Description,$Quantite,$QuantiteMin,$ImgProduit,$ID_Categorie
     $p=new Produit($_POST['id'],$_POST['Designation'],$_POST['prix'],.005,$_POST['description'],$_POST['quantite'],$_POST['quantite_min'],$image,$_POST['categorie']);
     $p->setDesignation($_POST['Designation']);
+    $p->setIDCategorie($_POST['categorie']);
     $p->setImgProduit($image);
     var_dump($p);
     $cc->insertProduit($p,$cc->conn);
