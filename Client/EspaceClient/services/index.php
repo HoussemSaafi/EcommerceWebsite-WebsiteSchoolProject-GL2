@@ -7,7 +7,7 @@ $login = new crudClient();
 
 if($login->is_loggedin()!="")
 {
-	$login->redirect('home.php');
+	$login->redirect('profile.php');
 }
 
 if(isset($_POST['btn-login']))
@@ -36,7 +36,7 @@ if(isset($_POST['btn-login']))
       {
           $client_id = $_SESSION['user_session'];
         $login->Client_connecte($client_id);
-        $login->redirect('home.php');
+        $login->redirect('profile.php');
       }
       else
       {

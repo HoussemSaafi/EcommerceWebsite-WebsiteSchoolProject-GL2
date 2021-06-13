@@ -101,7 +101,7 @@ class crudClient
  		{
  			try
 			{
-				$res=$this->bd->query("SELECT IDclient,username,email,nom,prenom,CIN,telephone,adresse,age,etatCompte,date_inscription FROM users");
+				$res=$this->bd->query("SELECT IDclient,username,email,nom,prenom,CIN,telephone,adresse,age,etatCompte,date_inscription FROM client");
 
 	          return  $liste=$res->fetchall();
 			}
@@ -308,7 +308,7 @@ class crudClient
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT IDclient, username, email FROM users WHERE username=:uname OR email=:umail ");
+			$stmt = $this->conn->prepare("SELECT IDclient, username, email FROM client WHERE username=:uname OR email=:umail ");
 			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
