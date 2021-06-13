@@ -100,6 +100,7 @@ if (isset($_SESSION['user_session'])) {
                         });
                     }
                 }
+            </script>
 
                 <div class="clear"></div>
   </div>
