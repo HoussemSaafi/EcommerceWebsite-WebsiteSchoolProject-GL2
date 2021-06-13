@@ -16,7 +16,7 @@ include 'class.user.php';
 	$user_id = $_SESSION['user_session'];
 
 	$auth_user = new USER();
-	$stmt = $auth_user->runQuery("SELECT * FROM users WHERE IDclient=:user_id");
+	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
 	$stmt->execute(array(":user_id"=>$user_id));
      $auth_user->User_connecte($user_id);
 	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -155,7 +155,7 @@ function submit(np)
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="index.html"><img src="web/images/logo.png" alt="" width="100px" height="100px/></a>
 			</div>
 			  <?php
 				afficherPanier();
@@ -249,7 +249,7 @@ function submit(np)
 		          {
 		          	$exist=0;
 		            echo '<div class="grid_1_of_4 images_1_of_4">';
-		            echo '<a href="preview.php?IDProduit='.$r['Ref'].'"><div style="width: 250px; height: 250px;;overflow:hidden"><img  src="data:image/jpeg;base64,'.base64_encode($r['ImgProduit']).'" /></div></a>';
+                      echo '<a href="preview.php?IDProduit='.$r['Ref'].'"><div style="width: 250px; height: 250px;;overflow:hidden"><img src="data:image;base64,'.$r['ImgProduit'].'"style=max-width:300px;width:100% /></div></a>';
 		            echo ' <h2>'.$r['Designation'].' </h2>';
 		            echo '<div class="price-details">';
 		            echo '<div class="price-number">';

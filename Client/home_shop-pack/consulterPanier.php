@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 include 'class.user.php';
 if (!isset($_SESSION)) {
     session_start();
+    //print_r($_SESSION);
 }
 if (isset($_SESSION['user_session'])) {
 	$user_id = $_SESSION['user_session'];
@@ -78,7 +79,7 @@ if (isset($_SESSION['user_session'])) {
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="index.html"><img src="web/images/logo.png" alt="" width="100px" height="100px/></a>
 			</div>
 			<?php
 				afficherPanier();
