@@ -140,8 +140,8 @@ function submit(np)
                     else
                     {
                         ?>
-                        <li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
-                        <li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
+                        <li><a href="../EspaceClient/services/sign-up.php">Sign Up</a></li>
+                        <li><a href="../EspaceClient/services/index.php">Sign In</a></li>
 
 
                         <?php

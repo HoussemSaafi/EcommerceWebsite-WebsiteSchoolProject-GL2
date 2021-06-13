@@ -9,7 +9,7 @@
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Erreur SMTP : échec de l\'authentification.';
-$PHPMAILER_LANG['connect_host']         = 'Erreur SMTP : impossible de se connecter au serveur SMTP.';
+$PHPMAILER_LANG['connect_host']         = 'Erreur SMTP : impossible de Sign In au serveur SMTP.';
 $PHPMAILER_LANG['data_not_accepted']    = 'Erreur SMTP : données incorrectes.';
 $PHPMAILER_LANG['empty_message']        = 'Corps du message vide.';
 $PHPMAILER_LANG['encoding']             = 'Encodage inconnu : ';

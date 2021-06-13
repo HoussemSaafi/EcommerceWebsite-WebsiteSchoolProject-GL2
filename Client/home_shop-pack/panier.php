@@ -61,7 +61,7 @@ try
 					<?php if(!isset($_SESSION['user_id'])){?>
 						<a href="register.php">S'inscrire</a>
 					</li>
-					<li><a href="connect.php">Se connecter</a></li>
+					<li><a href="connect.php">Sign In</a></li>
 			<?php }else{ ?>
 					<li>
 						<a href="my_account.php">Mon compte</a>
@@ -271,7 +271,7 @@ $pt_fid_user = $s->pt_fid_user; ?>
 					<p><font color='#eabe60'>Calcul des frais de port sans remise : <?php echo $shipping." DT"?></font></p>
 					
 			<?php } } ?>
-		<?php if(isset($_SESSION['user_id'])){?><a href="<?php echo $paypal; ?>"><font color='#eabe60'>Payer la commande</font></a><?php }else{?> <h4 style="color:red;">Vous devez être connecter pour payer votre commande. <a href="connect.php">Se connecter</a></h4><?php } ?>
+		<?php if(isset($_SESSION['user_id'])){?><a href="<?php echo $paypal; ?>"><font color='#eabe60'>Payer la commande</font></a><?php }else{?> <h4 style="color:red;">Vous devez être connecter pour payer votre commande. <a href="connect.php">Sign In</a></h4><?php } ?>
 					
 					</td>
 				
@@ -396,7 +396,7 @@ $pt_fid_user = $s->pt_fid_user; ?>
 					<?php if(!isset($_SESSION['user_id'])){?>
 						<a href="register.php">S'inscrire</a>
 					</li>
-					<li><a href="connect.php">Se connecter</a></li>
+					<li><a href="connect.php">Sign In</a></li>
 			<?php }else{ ?>
 					<li>
 						<a href="my_account.php">Mon compte</a>

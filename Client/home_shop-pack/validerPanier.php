@@ -72,8 +72,8 @@ session_start();
                       else
                       {
                     ?>
-					<li><a href="../EspaceClient/sign-up">Créer un compte</a></li>
-					<li><a href="../EspaceClient/index">Se connecter</a></li>
+					<li><a href="../EspaceClient/sign-up">Sign Up</a></li>
+					<li><a href="../EspaceClient/index">Sign In</a></li>
 					
 
                <?php

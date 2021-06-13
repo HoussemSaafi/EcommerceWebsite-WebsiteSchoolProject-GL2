@@ -64,8 +64,8 @@ if (isset($_SESSION['user_session'])) {
                     else
                     {
                         ?>
-                        <li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
-                        <li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
+                        <li><a href="../EspaceClient/services/sign-up.php">Sign Up</a></li>
+                        <li><a href="../EspaceClient/services/index.php">Sign in</a></li>
 
 
                         <?php
@@ -101,7 +101,19 @@ if (isset($_SESSION['user_session'])) {
                     }
                 }
 
-                <div class="clear"></div>
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-2').removeClass('active');
+				});
+
+			});
+
+		</script>
+	 <div class="clear"></div>
   </div>
             </script>
 	<div class="header_bottom">
