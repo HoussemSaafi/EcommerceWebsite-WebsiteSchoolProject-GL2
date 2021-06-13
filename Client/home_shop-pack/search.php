@@ -1,16 +1,6 @@
 
 <?php
 require("HeaderLayout.php");
-/*include 'class.user.php';
-session_start();
-	if (isset($_SESSION['user_session'])) 
-	{
-	$user_id = $_SESSION['user_session'];
-	$auth_user = new USER();
-	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
-	$stmt->execute(array(":user_id"=>$user_id));
-     $auth_user->User_connecte($user_id);
-	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);}*/
 
 	    $conn=ConnexionBD::getInstance();
 	    $keyword=$_GET['keyword'] ;
@@ -74,53 +64,6 @@ foreach ($keywords as $word) {
     </script>
 
 <body onload="submit(1)">
-<p id="firstsearchkeyword" hidden><?php echo $_GET["keyword"]; ?></p>
-  <div class="wrap">
-	<div class="header">
-		<div class="headertop_desc">
-			<div class="call">
-                <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
-			</div>
-			<div class="account_desc">
-				<ul>
-                    <?php 
-                    	if(isset($_SESSION['user_session'])) {?>
-                    			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/sevices/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
-                				<li><a href="../EspaceClient/sevices/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
-                		<?php  } else { ?>
-					<li><a href="../EspaceClient/sevices/sign-up.php">Créer un compte</a></li>
-					<li><a href="../EspaceClient/sevices/index.php">Se connecter</a></li>
-               <?php } ?>
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="header_top">
-			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" /></a>
-			</div>
-			  <?php  afficherPanier(); ?>
-			  <script type="text/javascript">
-			function DropDown(el) {
-				this.dd = el;
-				this.initEvents();
-			}
-			DropDown.prototype = {
-				initEvents : function() {
-					var obj = this;
-
-					obj.dd.on('click', function(event){
-						$(this).toggleClass('active');
-						event.stopPropagation();
-					});}}
-			$(function(){
-				var dd = new DropDown( $('#dd') );
-				$(document).click(function() {
-					// all dropdowns
-					$('.wrapper-dropdown-2').removeClass('active');
-				});});
-		</script>
 
  <div class="main">
      <p id="firstsearchkeyword" hidden><?php echo $_GET["keyword"]; ?></p>
@@ -201,63 +144,7 @@ foreach ($keywords as $word) {
     </div>
  </div>
 </div>
-   <div class="footer">
-   	  <div class="wrap">	
-	     <div class="section group">
-				<div class="col_1_of_4 span_1_of_4">
-						<h4>Information</h4>
-						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.php">Customer Service</a></li>
-						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contact.php">Contact Us</a></li>
-						</ul>
-					</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h4>Why buy from us</h4>
-						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.php">Customer Service</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.php">Site Map</a></li>
-						<li><a href="#">Search Terms</a></li>
-						</ul>
-				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h4>My account</h4>
-						<ul>
-							<li><a href="contact.php">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
-							<li><a href="#">My Wishlist</a></li>
-							<li><a href="#">Track My Order</a></li>
-							<li><a href="contact.php">Help</a></li>
-						</ul>
-				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<h4>Contact</h4>
-						<ul>
-							<li><span>+91-123-456789</span></li>
-							<li><span>+00-123-000000</span></li>
-						</ul>
-						<div class="social-icons">
-							<h4>Follow Us</h4>
-					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="web/images/twitter.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="web/images/skype.png" alt="" /> </a></li>
-							      <li><a href="#" target="_blank"> <img src="web/images/dribbble.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"> <img src="web/images/linkedin.png" alt="" /></a></li>
-							      <div class="clear"></div>
-						     </ul>
-   	 					</div>
-				</div>
-			</div>			
-        </div>
-        <div class="copy_right">
-				<p>Company Name © All rights Reseverd | Design by  <a href="http://w3layouts.com">W3Layouts</a> </p>
-		   </div>
-    </div>
+ <?php   require("footerLayout.php");  ?>
     <script type="text/javascript">
 		$(document).ready(function() {			
 			$().UItoTop({ easingType: 'easeOutQuart' });

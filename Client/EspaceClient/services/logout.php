@@ -6,7 +6,7 @@ require_once("../cruds/crudClient.php");
 	
 	if($client_logout->is_loggedin()!="")
 	{
-		$client_logout->redirect('home.php');
+		$client_logout->redirect('profile.php');
 	}
 	if(isset($_GET['logout']) && $_GET['logout']=="true")
 	{   $client_logout->Client_deconnecte($client_id);

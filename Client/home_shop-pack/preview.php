@@ -540,10 +540,6 @@ $id_post = $_GET["IDProduit"]; //the post or the page id
     </div>
  </div>
 
-   	  
-        <div class="copy_right">
-				<p>Company Name © All rights Reseverd | Design by  <a href="http://w3layouts.com">W3Layouts</a> </p>
-		   </div>
   
    <script type="text/javascript">
 		$(document).ready(function() {			
@@ -598,9 +594,11 @@ $id_post = $_GET["IDProduit"]; //the post or the page id
 				}
 			}
 	</script>
+  <?php   require("footerLayout.php");  ?>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
 
     <div id="fb-root"></div>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

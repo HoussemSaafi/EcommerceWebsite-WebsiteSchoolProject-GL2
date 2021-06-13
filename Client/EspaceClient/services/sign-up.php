@@ -5,7 +5,7 @@ $client = new crudClient();
 
 if($client->is_loggedin()!="")
 {
-	$client->redirect('home');
+	$client->redirect('profile.php');
 }
  
 if(isset($_POST['btn-signup']))
