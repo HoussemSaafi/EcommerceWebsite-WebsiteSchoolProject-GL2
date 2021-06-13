@@ -83,7 +83,7 @@ include 'raccourciPanier.php';
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="../home_shop-pack/mobile/index.html"><img src="web/images/logo.png" alt="" /></a>
+				<a href="web/index.html"><img src="web/images/logo.png" alt="" /></a>
 			</div>
 			  <?php
 				afficherPanier();
@@ -203,31 +203,31 @@ include 'raccourciPanier.php';
 				<div class="col_1_of_4 span_1_of_4">
 						<h4>Information</h4>
 						<ul>
-						<li><a href="../home_shop-pack/mobile/about.html">About Us</a></li>
-						<li><a href="../home_shop-pack/mobile/contact.html">Customer Service</a></li>
+						<li><a href="web/about.html">About Us</a></li>
+						<li><a href="web/contact.html">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
-						<li><a href="../home_shop-pack/mobile/delivery.html">Orders and Returns</a></li>
-						<li><a href="../home_shop-pack/mobile/contact.html">Contact Us</a></li>
+						<li><a href="web/delivery.html">Orders and Returns</a></li>
+						<li><a href="web/contact.html">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="../home_shop-pack/mobile/about.html">About Us</a></li>
-						<li><a href="../home_shop-pack/mobile/contact.html">Customer Service</a></li>
+						<li><a href="web/about.html">About Us</a></li>
+						<li><a href="web/contact.html">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="../home_shop-pack/mobile/contact.html">Site Map</a></li>
+						<li><a href="web/contact.html">Site Map</a></li>
 						<li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="../home_shop-pack/mobile/contact.html">Sign In</a></li>
-							<li><a href="../home_shop-pack/mobile/index.html">View Cart</a></li>
+							<li><a href="web/contact.html">Sign In</a></li>
+							<li><a href="web/index.html">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="../services/consulterLivraison.php">Track My Order</a></li>
-							<li><a href="../home_shop-pack/mobile/contact.html">Help</a></li>
+							<li><a href="web/contact.html">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
