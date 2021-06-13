@@ -51,8 +51,8 @@ $conn=ConnexionBD::getInstance();
                     else
                     {
                         ?>
-                        <li><a href="../EspaceClient/sign-up">Créer un compte</a></li>
-                        <li><a href="../EspaceClient/index">Se connecter</a></li>
+                        <li><a href="../EspaceClient/services/sign-up.php">Créer un compte</a></li>
+                        <li><a href="../EspaceClient/services/index.php">Se connecter</a></li>
                         <?php
                     }
                     ?>

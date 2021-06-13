@@ -103,6 +103,7 @@ if (isset($_SESSION['user_session'])) {
 
                 <div class="clear"></div>
   </div>
+            </script>
 	<div class="header_bottom">
 	     	<div class="menu">
 	     		<ul>

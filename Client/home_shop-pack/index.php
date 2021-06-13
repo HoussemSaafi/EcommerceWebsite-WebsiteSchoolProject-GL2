@@ -397,8 +397,7 @@ $conn=ConnexionBD::getInstance();
     </div>
  </div>
 </div>
-
-
+        <?php   require("footerLayout.php");  ?>
     </div>
     <script type="text/javascript">
 		$(document).ready(function() {			
