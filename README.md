@@ -21,9 +21,11 @@ Our website is a shop/shipping website which primary goal is to listen to its cl
 From the administrator side, we receive orders and set time for their delivery and see the list of clients and respond to complaints and many other things
 On the other hands clients can get involved in live discussions and put comments on the products as well as buy products and choose different ways of payment:(paypall or once the order is delivered with a printed receipt!) finally a client could also follow the status of his order just to make sure that the client is well informed about his order.
   
-+You can register or use our default Administrator to log in: 
++You can register or use our default Administrator to log into the backend deployed website:
 
 _**email:**_ admin@admin.com  // _**password:**_ admin
+
++You can register or use any of the accounts in the database to connect in the frontend deployed website:
 
 +the links to our website deployed on Heroku: 
 
