@@ -2,11 +2,11 @@
 include 'class.user.php';
 
 
-	//session_start();
+	session_start();
 if (isset($_SESSION['user_session'])) {
 	$user_id = $_SESSION['user_session'];
 	$auth_user = new USER();
-	$stmt = $auth_user->runQuery("SELECT * FROM users WHERE IDclient=:user_id");
+	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
 	$stmt->execute(array(":user_id"=>$user_id));
      $auth_user->User_connecte($user_id);
 	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -22,11 +22,11 @@ function success()
 	console.log(success);
 	if(success==1)
 	{
-		window.alert("Reclamation envoyé avec succée");
+		alert("Reclamation envoyé avec succée");
 	}
 	else
 	{
-		window.alert("Erreur lors de l'envoie")
+		alert("Erreur lors de l'envoie")
 	}
 }
 
@@ -44,12 +44,12 @@ function success()
 <script type="text/javascript" src="web/js/move-top.js"></script>
 <script type="text/javascript" src="web/js/easing.js"></script>
 </head>
-<body onload="success()">
+<body >
   <div class="wrap">
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+				 <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
 			</div>
 			<div class="account_desc">
 				<ul>
@@ -58,7 +58,7 @@ function success()
                     {
                         ?>
                         <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                        <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
 
                         <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
@@ -166,7 +166,7 @@ function success()
 						    	<span><textarea name="Description"> </textarea></span>
 						    </div>
 						   <div>
-						   		<span><input type="submit" value="Submit"  class="myButton"></span>
+						   		<span onclick="success()"><input type="submit" value="Submit"  class="myButton"></span>
 						  </div>
 					    </form>
 						<?php
@@ -187,20 +187,20 @@ function success()
   				</div>
 				<div class="col span_1_of_3">
 					<div class="contact_info">
-    	 				<h3>Find Us Here</h3>
-					    	  <div class="map">
-							   	    <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
-							  </div>
-      				</div>
-      			<div class="company_address">
-				     	<h3>Company Information :</h3>
-						    	<p>500 Lorem Ipsum Dolor Sit,</p>
-						   		<p>22-56-2-9 Sit Amet, Lorem,</p>
-						   		<p>USA</p>
-				   		<p>Phone:(00) 222 666 444</p>
-				   		<p>Fax: (000) 000 00 00 0</p>
-				 	 	<p>Email: <span>info@mycompany.com</span></p>
-				   		<p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
+                        <h3>Find Us Here</h3>
+                        <div class="map">
+                            <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=INSAT+Point,+Tunis,+Tunisia&amp;aq=4&amp;oq=light&amp;sll=36.84341369396452, 10.196041207172955&amp;sspn=36.84341369396452, 10.196041207172955&amp;ie=UTF8&amp;hq=&amp;hnear=INSAT+Point,+Insat,+Tunis,+Tunisia&amp;t=m&amp;z=14&amp;ll=36.84341369396452, 10.196041207172955&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Insat+Point,+Tunis,+Tunisia&amp;aq=4&amp;oq=light&amp;sll=36.84341369396452, 10.196041207172955&amp;sspn=36.84341369396452, 10.196041207172955&amp;ie=UTF8&amp;hq=&amp;hnear=Insat+Point,+Insat,+Tunis,+Tunisia&amp;t=m&amp;z=14&amp;ll=36.84341369396452, 10.196041207172955" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
+                        </div>
+                    </div>
+                    <div class="company_address">
+                        <h3>Company Information :</h3>
+                        <p>DELIVERING FROM ALL OVER THE WORLD</p>
+                        <p>22-56-2-9 Sit Amet, Lorem,</p>
+                        <p>Tunis, Tunisia</p>
+                        <p>Phone:+216 26 211 344</p>
+                        <p>Fax: (000) 000 00 00 0</p>
+                        <p>Email: <span>gl2@gmail.com</span></p>
+                        <p>Follow on: <span href="https://www.facebook.com/Shipping-from-across-the-World-111456524500065">Facebook</span>, <span>Twitter</span></p>
 				   </div>
 				 </div>
 			  </div>		

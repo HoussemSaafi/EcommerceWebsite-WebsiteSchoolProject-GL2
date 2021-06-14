@@ -7,7 +7,6 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 
 //session_start();
 
-
 class Commande
 {
 
@@ -119,14 +118,14 @@ class Commande
 		//var_dump($_SESSION['panier']['idProduit'] );
 		foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 			
-			$res=$this->conn->query("SELECT PrixHT ,TVA,Ref from produit where Designation='".$value."'");
+			$res=$this->conn->query("SELECT PrixHT ,TVA,Ref from produit where Ref='".$value."'");
 		//	var_dump($res );
 			$liste=$res->fetchall();
 //var_dump($liste);
 			foreach ($liste as $i => $l) {
 				array_push($this->tabprixProduit, $l['PrixHT']);
 				array_push($this->tabtvaProduit, $l['TVA']);
-				array_push($prom, $l['IDProduit']);
+				array_push($prom, $l['Ref']);
 
 
 
@@ -213,36 +212,42 @@ $value/100+8;
 
 
 		public function ajouterCommande()
-		{
-			$this->idClient=$_SESSION['client'];
-			$sql="INSERT into commande (DateCreation,EtatPaiment,prixtotale,IDClient) values(CURDATE(),'".$this->etatPaiment.",".$this->prixTotale.",".$this->idClient.")";
+		{   var_dump($_SESSION['user_id']);
+			$this->idClient=$_SESSION['user_id'];
+			$this->prixTotale=$_SESSION['prixtot'];
+			$sql="INSERT into commande (DateCreation,EtatPaiment,prixtotale,IDClient,IDReduction) values(CURDATE(),'non payée',".$this->prixTotale.",".$this->idClient.",2)";
 			$resultatreq=$this->conn->query($sql);
+			//$this->idCommande=$resultatreq[IDCommande];
 			var_dump($sql);
 			var_dump($resultatreq);
 			if ($resultatreq==false) {
 				echo "errrr";
 			}
 				else{
-				$sql="SELECT Max(IDCommande) from commande ";
+				$sql="SELECT Max(IDCommande) from commande";
 				$res=$this->conn->query($sql);
 				$liste=$res->fetchall();
 			//	var_dump($liste);
-				foreach ($liste as $l) {
-					$this->idCommande=$l[0];
-				//	var_dump($this->idCommande);
-					$_SESSION['idCommande']=$this->idCommande;
-				}
+                    $this->idCommande=$liste[0];
+                    var_dump($this->idCommande);
+                    $_SESSION['idCommande']=$this->idCommande;
+//				foreach ($liste as $l) {;
+//					$this->idCommande=$l[0];
+//				//	var_dump($this->idCommande);
+//					$_SESSION['idCommande']=$this->idCommande;
+//				}
 
 
 				foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 
-						$req="SELECT IDProduit from produit where Designation='".$value."'";
+						$req="SELECT Ref from produit where Ref='".$value."'";
+						var_dump($req);
 						$resul=$this->conn->query($req);
 						$idprod=$resul->fetchall();
 						foreach ($idprod as $idp) {
-							
-						
-					$sql="INSERT into linedecommande (IDCommande,Qte,IDProduit) values(".$this->idCommande.",".$_SESSION['panier']['qte'][$key].",".$idp[0].")";
+						var_dump($this->idCommande);
+					$sql="INSERT into linedecommande (IDCommande,Qte,Ref) values(".$this->idCommande[0].",".$_SESSION['panier']['qte'][$key].",".$idp[0].")";
+					var_dump($sql);
 					if($this->conn->query($sql))
 					{
 						$sql="UPDATE produit set Quantite=(Quantite-".$_SESSION['panier']['qte'][$key].") WHERE IDProduit=".$idp[0];

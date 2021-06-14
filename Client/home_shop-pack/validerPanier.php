@@ -10,7 +10,7 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="emailid">Email Id</label>  
+  <label class="col-md-4 control-label" for="emailid">Username</label>
   <div class="col-md-4">
   <input id="emailid" name="username" placeholder="" class="form-control input-md" required="" type="text">
     
@@ -36,17 +36,6 @@
 
 </fieldset>
 </form>
-
-
-
-
-
-
-
-
-
-
-
 
 	    <script type="text/javascript">
     $(document).ready(function () {

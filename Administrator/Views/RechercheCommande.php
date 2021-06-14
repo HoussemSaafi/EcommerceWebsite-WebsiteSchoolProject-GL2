@@ -53,7 +53,8 @@ $liste=$c->afficherlignepourClient($_GET['idCommande']);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">GL2 SHOP</a>
+            <a class="navbar-brand" href="index.php
+							<li><span>			<li><span></span></li></span></li>">GL2 SHOP</a>
         </div>
 
         <div class="header-right">
@@ -345,7 +346,7 @@ if (isset($liste)) {
     </div>
     <!-- /. WRAPPER  -->
     <div id="footer-sec">
-        &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+        &copy; GL2 2020/2021 |
     </div>
     <!-- /. FOOTER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

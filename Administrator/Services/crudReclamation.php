@@ -1,17 +1,24 @@
 <?php
-include("../classes/Reclamation.php");
-include("../classes/Repository.php");
+//include("../classes/Reclamation.php");
+//include("../classes/Repository.php");
+require_once('../../Administrator/classes/ConnexionBD.php');
 
-class crudReclamation extends Repository {
+
+class crudReclamation {
+
+
+public $bd;
+
 
     function __construct()
     {
-        parent::__construct('reclamation');
+        $this->bd=ConnexionBD::getInstance();
+      //  parent::__construct('reclamation');
     }
     function insertReclamation($rep){
 
-        $req1="INSERT INTO reclamation (IDReclamation,Description,Sujet,DateReclamation,IDClient)
-		VALUES (".$rep->getIDReclamation().",'".$rep->getDescription()."','".$rep->getSujet()."','".$rep->getDateReclamation()."','".$rep->getIDclient()."')";
+        $req1="INSERT INTO reclamation (Description,Sujet,IDClient)
+		VALUES ('".$rep->getDescription()."','".$rep->getSujet()."','".$rep->getIDclient()."')";
         $this->bd->query($req1);
 
     }

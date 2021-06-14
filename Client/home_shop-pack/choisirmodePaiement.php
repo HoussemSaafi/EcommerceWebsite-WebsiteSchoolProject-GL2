@@ -35,8 +35,14 @@ Choisissez le mode de paiement
 <div class="container" style="margin-left: 38%">
     <div class="row">
         <div class="col-xs-12 col-md-4">
-                
-<a class="btn btn-block btn-lg btn-info"></span>Prix Totale: <?php echo $_SESSION['prixtot'] ; ?> TND</a>
+                 <?php
+                        $prix=0;
+                        foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
+                            $prix+= $_SESSION['panier']['prixProduit'][$key]*$_SESSION['panier']['qte'][$key];
+
+                        }
+                        ?>
+<a class="btn btn-block btn-lg btn-info"></span>Prix Totale: <?php echo $prix+8 ; ?> TND</a>
 <br><br>
 						<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 							<input name="amount" type="hidden" value="<?php echo $p; ?>" />
@@ -47,7 +53,6 @@ Choisissez le mode de paiement
 							<input name="cancel_return" type="hidden" value="http://localhost:8080/home_shoppe-pack/choisirmodePaiement.php" />
 							<input name="notify_url" type="hidden" value="http://localhost:8080/home_shoppe-pack/ipn.php" />
 							<input name="cmd" type="hidden" value="_xclick" />
-							<input name="business" type="hidden" value="khalil.guibene-facilitator@esprit.tn" />
 							<input name="item_name" type="hidden" value="Prix total" />
 							<input name="no_note" type="hidden" value="1" />
 							<input name="lc" type="hidden" value="FR" />

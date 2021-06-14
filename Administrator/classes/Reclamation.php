@@ -7,8 +7,8 @@ class Reclamation{
 	protected $dateReclamation;
 	protected $IDClient;
 	//constructeur
-	function __construct($IDReclamation,$description,$sujet,$IDClient){
-		$this->IDReclamation=$IDReclamation;
+	function __construct($description,$sujet,$IDClient){
+
 		$this->description=$description;
 		$this->sujet=$sujet;
 		$this->IDClient=$IDClient;

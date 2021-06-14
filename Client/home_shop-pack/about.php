@@ -47,7 +47,7 @@ include 'raccourciPanier.php';
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+				 <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
 			</div>
 			<div class="account_desc">
 				<ul>
@@ -57,9 +57,9 @@ include 'raccourciPanier.php';
                     	{
                     		?>
                     			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                    		    <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
 
-                				<li><a href="../EspaceClient/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
+                				<li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a></li>
 
 
                 		<?php
@@ -68,8 +68,8 @@ include 'raccourciPanier.php';
                       else
                       {
                     ?>
-					<li><a href="../EspaceClient/sign-up">Créer un compte</a></li>
-					<li><a href="../EspaceClient/index">Se connecter</a></li>
+					<li><a href="../EspaceClient/sign-up">Sign Up</a></li>
+					<li><a href="../EspaceClient/index">Sign In</a></li>
 
 
                <?php
@@ -83,7 +83,8 @@ include 'raccourciPanier.php';
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="web/images/logo.png" alt="" width="100px" height="100px"/></a>
+<!--				<a href="index.php
+							<li><span>			<li><span></span></li></span></li>"><img src="web/images/logo.png" alt="" width="100px" height="100px"/></a>-->
 			</div>
 			  <?php
 				afficherPanier();
@@ -143,55 +144,53 @@ include 'raccourciPanier.php';
     	<div class="section group">
 				<div class="col_1_of_3 span_1_of_3">
 					<h3>Who We Are</h3>
-					<img src="web/images/about_img.jpg" alt="">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					<img src="web/images/Houssem1.jpg" height=370px width="370px" alt="">
+					<p>Houssem Saafi - CO FOUNDER.</p>
+					<p>Our goal is to see our clients needs through the chat service that we implemented or the facebook page that we have. We want them to pick and choose whatever item they want. If one item gets a lot of requests we would ship it from wherever place in the world it is for our customers in Tunisia. All this at low costs and delivery low prices. WE MAKE THE WORLD LOOK SMALL</p>
 				</div>
 				<div class="col_1_of_3 span_1_of_3">
-					<h3>Our History</h3>
+					<h3>Meet our team</h3>
+                    <img src="web/images/Safa.jpg" alt="">
 				 <div class="history-desc">
-					<div class="year"><p>1998 -</p></div>
-					<p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<p class="history">Safa Kedidi - CO FOUNDER.</p>
+					<p class="history">With the raise of technology, the world has become smaller and smaller! We want our customers to feel that even when it comes to shopping. Nowadays, tunisians visit shops from all over the world yet sometimes they can't buy stuff simply because we don't have it in our country. That is why we want to provide them with everything they need</p>
 				 <div class="clear"></div>
 				</div>
 				 <div class="history-desc">
-					<div class="year"><p>2001 -</p></div>
-					<p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+					<div class="year"><p></p></div>
+					<p class="history"></p>
 				 <div class="clear"></div>
 				</div>
 				 <div class="history-desc">
-					<div class="year"><p>2006 -</p></div>
-					<p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<div class="year"><p></p></div>
+					<p class="history"></p>
 				 <div class="clear"></div>
 				</div>
 				 <div class="history-desc">
-					<div class="year"><p>2010 -</p></div>
-					<p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<div class="year"><p></p></div>
+					<p class="history"></p>
 				 <div class="clear"></div>
 				</div>
 				<div class="history-desc">
-					<div class="year"><p>2013 -</p></div>
-					<p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+					<div class="year"><p></p></div>
+					<p class="history"></p>
 				 <div class="clear"></div>
 				</div>
 			</div>
 				<div class="col_1_of_3 span_1_of_3">
-					<h3>Opportunities</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					<h3>Shipping For Tunisia</h3>
+                    <img src="web/images/emna.jpg" alt="">
+					<p>Emna Boukhris - CO FOUNDER.</p>
 				    <div class="list">
 					     <ul>
-					     	<li><a href="#">Text of the printing</a></li>
-					     	<li><a href="#">Lorem Ipsum has been the standard</a></li>
-					     	<li><a href="#">Dummy text ever since the 1500s</a></li>
+					     	<li><a href="#">Not gonna lie, we started this project for the money. We just want to be rich and that's it.</a></li>
+					     	<li><a href="#">Never believe what Safa said.</a></li>
+					     	<li><a href="#">I agree with whatever Houssem said.</a></li>
 					     	<li><a href="#">Unknown printer took a galley</a></li>
-					     	<li><a href="#">Led it to make a type specimen</a></li>
-					     	<li><a href="#">Not only five centuries</a></li>
-					     	<li><a href="#">Electronic typesetting</a></li>
-					     	<li><a href="#">Unchanged. It was popularised</a></li>
-					     	<li><a href="#">Sheets containing Lorem Ipsume</a></li>
+					     	<li><a href="#">That's it fellas</a></li>
 					     </ul>
 					 </div>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					 <p></p>
 				</div>
 			</div>			
     </div>
@@ -201,45 +200,52 @@ include 'raccourciPanier.php';
    	  <div class="wrap">
 	     <div class="section group">
 				<div class="col_1_of_4 span_1_of_4">
-						<h4>Information</h4>
-						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
-						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						</ul>
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="about.php"<li><span>
+                        <li><span</li></span></li>">About Us"</a></li>
+                        <li><a href="contact.php">Customer Service</a></li>
+                        <li><a href="#">Advanced Search</a></li>
+                        <li><a href="delivery.php">Orders and Returns</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
+                    </ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
+						<li><a href="about.php
+							<li><span>			<li><span></span></li></span></li>">About Us</a></li>
+						<li><a href="contact.php
+							<li><span>			<li><span></span></li></span></li>">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html">Site Map</a></li>
+						<li><a href="contact.php
+							<li><span>			<li><span></span></li></span></li>">Site Map</a></li>
 						<li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
+							<li><a href="contact.php
+							<li><span>			<li><span></span></li></span></li>">Sign In</a></li>
+							<li><a href="index.php
+							<li><span>			<li><span></span></li></span></li>">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="contact.html">Help</a></li>
+							<li><a href="contact.php
+							<li><span>			<li><span></span></li></span></li>">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Contact</h4>
 						<ul>
-							<li><span>+91-123-456789</span></li>
-							<li><span>+00-123-000000</span></li>
+							<li><span>+216 26 211 344</span></li>
+							<li><span>			<li><span></span></li></span></li>
 						</ul>
 						<div class="social-icons">
 							<h4>Follow Us</h4>
 					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
+							      <li><a href="https://www.facebook.com/Shipping-from-across-the-World-111456524500065" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
 							      <li><a href="#" target="_blank"><img src="web/images/twitter.png" alt="" /></a></li>
 							      <li><a href="#" target="_blank"><img src="web/images/skype.png" alt="" /> </a></li>
 							      <li><a href="#" target="_blank"> <img src="web/images/dribbble.png" alt="" /></a></li>
@@ -251,7 +257,7 @@ include 'raccourciPanier.php';
 			</div>
         </div>
         <div class="copy_right">
-				<p>Company Name © All rights Reseverd | Design by  <a href="http://w3layouts.com">W3Layouts</a> </p>
+				<p>GL2 2020/2021 © All rights Reseverd |</p>
 		   </div>
     </div>
    <script type="text/javascript">

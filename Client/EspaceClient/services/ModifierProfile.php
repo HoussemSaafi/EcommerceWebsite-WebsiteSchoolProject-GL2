@@ -125,7 +125,7 @@ if(isset($_POST['btn-modifier']))
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">SEBCOM</a>
+          <a class="navbar-brand" href="">GL2 ON DEMAND SHOP</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -137,7 +137,7 @@ if(isset($_POST['btn-modifier']))
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        <span class="glyphicon glyphicon-user"></span>&nbsp;Hi' <?php echo $userRow['username']; ?>&nbsp;<span class="caret"></span></a>
+        <span class="glyphicon glyphicon-user"></span>&nbsp;Hello Dear,  <?php echo $userRow['username']; ?>&nbsp;<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Consulter Profile</a></li>
                 <li><a href="ModifierProfile.php"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Modifier Profile</a></li>
@@ -188,7 +188,7 @@ if(isset($_POST['btn-modifier']))
                   {
                      ?>
                              <div class="alert alert-info ">
-                                  <i class="glyphicon glyphicon-log-in"></i> &nbsp; Modification avec Succès  <a href='../../../../projet/Client/services/profile.php'> Retour vers votre Profile</a>
+                                  <i class="glyphicon glyphicon-log-in"></i> &nbsp; Modification avec Succès  <a href='profile.php'> Retour vers votre Profile</a>
                              </div>
                              <?php
                   }

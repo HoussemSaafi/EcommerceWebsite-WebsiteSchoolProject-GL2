@@ -41,7 +41,7 @@ $conn= ConnexionBD::getInstance();
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help ?</span> call us on <span class="number">+71458725</span></span></p>
+				 <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
 			</div>
 			<div class="account_desc">
 				<ul>
@@ -51,7 +51,7 @@ $conn= ConnexionBD::getInstance();
                     	{
                     		?>	
                     			 <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                    		    <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                    		    <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
               
                 				<li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
@@ -182,7 +182,7 @@ $conn= ConnexionBD::getInstance();
 
 									 <div id="slide-1" class="slide">			                    
 									 <div class="slider-img">
-									     <a href="../home_shop-pack/mobile/preview.html"><?php echo ' <img alt="learn more" src="data:image;base64,'.$the_image[1].'" />'?></a>
+									     <a href="../home_shop-pack/index.php"><?php echo ' <img alt="learn more" src="data:image;base64,'.$the_image[1].'" />'?></a>
 									  </div>
 						             	<div class="slider-text">
 		                                 <h1>Clearance<br><span>SALE</span></h1>
@@ -238,10 +238,10 @@ $conn= ConnexionBD::getInstance();
 		            echo '<div class="price-details">';
 		            echo '<div class="price-number">';
 		            foreach ($promotion as $prom) {
-                        if($prom['IDProduit']==$r['IDProduit']){
-                        $exist=1;
+                      //  if($prom['IDProduit']==$r['IDProduit']){
+                        //$exist=1;
                         
-                        }     
+                       // }
                     }
     				
                     if($exist==1){echo '<p style="text-decoration: line-through"><span class="rupees">'.$r['PrixHT'].' DT</span></p>';
@@ -324,7 +324,7 @@ $conn= ConnexionBD::getInstance();
 </div>
   
         <div class="copy_right">
-				<p>SEBCOM © All rights Reseverd | Design by  <a >Webstep</a> </p>
+				<p>GL2 ON DEMAND SHOP © All rights Reseverd |</p>
 		   </div>
     </div>
     <script type="text/javascript">

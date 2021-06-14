@@ -53,7 +53,7 @@ if(isset($_POST['btn-login']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Bienvenu a SEBCOM</title>
+<title>Bienvenu a GL2 ON DEMAND SHOP</title>
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="../assets/css/style.css" type="text/css"  />
@@ -118,7 +118,7 @@ if(isset($_POST['btn-login']))
       {
          ?>
                  <div class="alert alert-danger">
-                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; Compte désactiver avec succés 
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; Compte désactiver avec succés
                  </div>
                  <?php
       }else if(isset($_GET['nexistepas']))
@@ -168,9 +168,9 @@ if(isset($_POST['btn-login']))
            
        
       </form>
-       <div class="fb-share-button" data-href="http://localhost/FrontBack/EspaceClient/index" data-layout="button_count" data-mobile-iframe="true"></div>
+       <div class="fb-share-button" data-href="http://localhost/ecommercewebsite-projetwebgl2/Client/EspaceClient/services/profile.php" data-layout="button_count" data-mobile-iframe="true"></div>
 
-            <div style="padding-left:210px"class="fb-like" data-href="https://www.facebook.com/electrobennour/?fref=ts" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            <div style="padding-left:210px"class="fb-like" data-href="https://www.facebook.com/Shipping-from-across-the-World-111456524500065" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 
 
     </div>

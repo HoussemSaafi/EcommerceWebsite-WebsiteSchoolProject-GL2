@@ -80,7 +80,7 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 							if ($v['Quantite']>$_SESSION['qte']) {
 
 
-
+var_dump($_SESSION['idProduit']);
 
 								array_push($_SESSION['panier']['idProduit'], $_SESSION['idProduit']);
 								array_push($_SESSION['panier']['qte'], $_SESSION['qte']);
@@ -93,7 +93,7 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 								$liste=$res->fetchAll();
 								var_dump($liste);
 								foreach ($liste as $value) {
-									echo $value;
+									echo $value[0];
 								}	}
 							else
 								echo "errr2";
@@ -118,7 +118,7 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 				}
 				foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 					echo $value."<br>";
-					echo $_SESSION['panier']['prixProduit'][$value];
+					echo $_SESSION['panier']['prixProduit'][$key];
 				}
 				foreach ($_SESSION['panier']['qte'] as $key => $value) {
 					echo $value."<br>";
@@ -140,9 +140,6 @@ require_once('../../Administrator/classes/ConnexionBD.php');
 	}
 
 $p=new Panier();
-
-
-
 $p->CreerPanier();
 $p->AjouterProduit();
 //header('Location:'.$_SESSION['thispage']);

@@ -1,24 +1,17 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <?php
 	include 'class.user.php';
   //  session_start();
 	if (isset($_SESSION['user_session'])) {
-	$user_id = $_SESSION['user_session'];
+        $user_id = $_SESSION['user_session'];
 
-	$auth_user = new USER();
-	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
-	$stmt->execute(array(":user_id"=>$user_id));
-     $auth_user->User_connecte($user_id);
-	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-
-}
+        $auth_user = new USER();
+        $stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
+        $stmt->execute(array(":user_id" => $user_id));
+        $auth_user->User_connecte($user_id);
+        $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 	include 'raccourciPanier.php';
-  $_SESSION['thispage']="validerPanier"
+  $_SESSION['thispage']="validerPanier";
 	?>
 <!DOCTYPE HTML>
 <head>
@@ -39,7 +32,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+				 <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
 			</div>
 			<div class="account_desc">
 				<ul>
@@ -49,7 +42,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     {
                         ?>
                         <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                        <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
 
                         <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
@@ -255,43 +248,43 @@ Remplissez l'adresse de livraison
 				<div class="col_1_of_4 span_1_of_4">
 						<h4>Information</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.php">Customer Service</a></li>
-						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contact.php">Contact Us</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="contact.php">Customer Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="contact.php">Site Map</a></li>
+                            <li><a href="#">Search Terms</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.php">Customer Service</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.php">Site Map</a></li>
-						<li><a href="#">Search Terms</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="contact.php">Customer Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="contact.php">Site Map</a></li>
+                            <li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.php">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
-							<li><a href="#">My Wishlist</a></li>
-							<li><a href="#">Track My Order</a></li>
-							<li><a href="contact.php">Help</a></li>
+                            <li><a href="contact.php">Sign In</a></li>
+                            <li><a href="consulterPanier.php">View Cart</a></li>
+                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="#">Track My Order</a></li>
+                            <li><a href="contact.php">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Contact</h4>
 						<ul>
-							<li><span>+91-123-456789</span></li>
-							<li><span>+00-123-000000</span></li>
+							<li><span>+216 26 211 344</span></li>
+							<li><span>			<li><span></span></li></span></li>
 						</ul>
 						<div class="social-icons">
 							<h4>Follow Us</h4>
 					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
+							      <li><a href="https://www.facebook.com/Shipping-from-across-the-World-111456524500065" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
 							      <li><a href="#" target="_blank"><img src="web/images/twitter.png" alt="" /></a></li>
 							      <li><a href="#" target="_blank"><img src="web/images/skype.png" alt="" /> </a></li>
 							      <li><a href="#" target="_blank"> <img src="web/images/dribbble.png" alt="" /></a></li>
@@ -303,7 +296,7 @@ Remplissez l'adresse de livraison
 			</div>			
         </div>
         <div class="copy_right">
-				<p>Company Name © All rights Reseverd | Design by  <a href="http://w3layouts.com">W3Layouts</a> </p>
+				<p>GL2 2020/2021 © All rights Reseverd |</p>
 		   </div>
     </div>
    <script type="text/javascript">

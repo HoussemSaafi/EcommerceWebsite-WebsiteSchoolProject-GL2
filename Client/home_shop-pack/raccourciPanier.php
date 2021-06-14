@@ -23,9 +23,12 @@ function afficherPanier()
             {
                 var_dump($_SESSION['panier']['idProduit']);
                 var_dump($_SESSION['panier']['prixProduit']);
+//              $_SESSION['panier']['prixProduit']= array();
+// $_SESSION['panier']['idProduit']=array();
+  //            $_SESSION['panier']['qte']=array();
                 var_dump($_SESSION['panier']['qte']);
                 foreach ($_SESSION['panier']['idProduit']as $key => $value) {
-                    $prices+=$_SESSION['panier']['prixProduit'][$value]*$_SESSION['panier']['qte'][$key];
+                    $prices+=$_SESSION['panier']['prixProduit'][$key]*$_SESSION['panier']['qte'][$key];
 
 
                 }
@@ -45,7 +48,7 @@ function afficherPanier()
                             <li>
                                 <div class="steps clearfix">
                                     <label style="display: block; width: 150px; float: Left"><?php
-                                        echo $value." x ".$_SESSION['panier']['qte'][$key]." = ".$_SESSION['panier']['qte'][$key]*$_SESSION['panier']['prixProduit'][$value];
+                                        echo $value." x ".$_SESSION['panier']['qte'][$key]." = ".$_SESSION['panier']['qte'][$key]*$_SESSION['panier']['prixProduit'][$key];
                                         ?>
                                     </label>
                                     <div>

@@ -63,7 +63,7 @@ $res=$result->fetchAll();
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+				 <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
 			</div>
 			<div class="account_desc">
 				<ul>
@@ -73,7 +73,7 @@ $res=$result->fetchAll();
                     {
                         ?>
                         <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                        <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
 
                         <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
@@ -179,7 +179,7 @@ $res=$result->fetchAll();
 
 							        foreach($res as $r)
 							        {
-									echo '<img  src="data:image/jpeg;base64,'.base64_encode($r['ImgProduit']).'" />';
+									echo '<img src="data:image;base64,'.$r['ImgProduit'].'"style=max-width:300px;width:100% />';
 									}
 
 									?>
@@ -320,13 +320,13 @@ $res=$result->fetchAll();
 				<?php 
 
 // Connect to the database
-include('config_commentaire.php'); 
+include('config_commentaire.php');
 $id_post = $_GET["IDProduit"]; //the post or the page id
 ?>
 <div class="cmt-container" >
     <?php 
     $sql="SELECT * FROM comments WHERE id_post = '$id_post'";
-	$qr=mysqli_query($conn,$sql);
+	$qr=mysqli_query($connection,$sql);
     while($affcom = mysqli_fetch_assoc($qr)){ 
         $name = $affcom['name'];
         $email = $affcom['email'];
@@ -360,12 +360,15 @@ $id_post = $_GET["IDProduit"]; //the post or the page id
                     <?php 
                     	if(isset($_SESSION['user_session']))
                     	{
-                    		?>	
-         <input type="text" id="name-com" name="name-com" value="<?php echo $userRow['username']; ?>" hidden />
-        <input type="text" id="mail-com" name="mail-com" value="<?php echo $userRow['email']; ?>" hidden />
-        <textarea class="the-new-com"></textarea>
-        <div class="bt-add-com">Post comment</div>
-        <div class="bt-cancel-com">Cancel</div> 
+                    		?>
+                                <form action="insererCommentaire.php" method="POST">
+        <input type="hidden" id="post_id" name="post_id" value="<?php echo $id_post; ?>" hidden/>
+         <input type="text" id="name-com" name="name" value="<?php echo $userRow['username']; ?>" hidden />
+        <input type="text" id="mail-com" name="mail" value="<?php echo $userRow['email']; ?>" hidden />
+        <textarea class="the-new-com" name="commentaire"></textarea>
+        <input  type="submit" value="Post comment" name="ajouter" id="ajouter" class="bt-add-com" >;
+        <div class="bt-cancel-com">Cancel</div>
+                                </form>
                 		<?php		
                     	}
 
@@ -475,7 +478,7 @@ $id_post = $_GET["IDProduit"]; //the post or the page id
 		          {
 		          	$exist=0;
 		            echo '<div class="grid_1_of_4 images_1_of_4">';
-		            echo '<a href="preview.php?IDProduit='.$r['Ref'].'"><div style="width: 250px; height: 250px;;overflow:hidden"><img  src="data:image/jpeg;base64,'.base64_encode($r['ImgProduit']).'" /></div></a>';
+		            echo '<a href="preview.php?IDProduit='.$r['Ref'].'"><div style="width: 250px; height: 250px;;overflow:hidden"><img src="data:image;base64,'.$r['ImgProduit'].'"style=max-width:300px;width:100% /></div></a>';
 		            echo ' <h2>'.$r['Designation'].' </h2>';
 		            echo '<div class="price-details">';
 		            echo '<div class="price-number">';
@@ -511,7 +514,7 @@ $id_post = $_GET["IDProduit"]; //the post or the page id
   
 				<div style="float:Right">
 
-				<form class="form-horizontal">
+				<form class="form-horizontal" method="POST" action="insererNewsletter.php">
 				<fieldset>
 
 				<!-- Form Name -->
@@ -522,8 +525,9 @@ $id_post = $_GET["IDProduit"]; //the post or the page id
 				  <label class="col-md-4 control-label" for="appendedtext">Inscription Newsletter</label>
 				  <div class="col-md-4">
 				    <div class="input-group">
-				      <input   class="form-control" type="text" value = "Mettez votre E-mail ici ..." id="newsletter" style="margin-top : 5px;margin-right : 15px" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mettez votre E-mail ici ...';}">
-				      <span class="input-group-addon"><input type="button" value="Sign Up"   class="btn btn-sm btn-default" style="float:Right;padding-right : 20px" onclick="add_newsletter_list()"></span>
+				      <input   class="form-control" type="text" value = "Mettez votre E-mail ici ..." id="newsletter" name="newsletter" style="margin-top : 5px;margin-right : 15px" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mettez votre E-mail ici ...';}">
+				      <span class="input-group-addon"><input type="submit" value="Sign Up"   class="btn btn-sm btn-default" style="float:Right;padding-right : 20px" ></span>
+<!--                        onclick="add_newsletter_list()"-->
 				    </div>
 				  </div>
 				</div>

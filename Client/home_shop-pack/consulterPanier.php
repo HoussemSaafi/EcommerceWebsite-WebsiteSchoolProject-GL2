@@ -1,9 +1,3 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <?php
 include 'class.user.php';
 if (!isset($_SESSION)) {
@@ -43,7 +37,7 @@ if (isset($_SESSION['user_session'])) {
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+				 <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
 			</div>
 			<div class="account_desc">
 				<ul>
@@ -53,7 +47,7 @@ if (isset($_SESSION['user_session'])) {
                     {
                         ?>
                         <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                        <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
 
                         <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
@@ -184,10 +178,10 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong><?php 
-                            echo $_SESSION['panier']['prixProduit'][$value];
+                            echo $_SESSION['panier']['prixProduit'][$key];
                             ?> TND</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong><?php 
-                            echo $_SESSION['panier']['prixProduit'][$value]*$_SESSION['panier']['qte'][$key];
+                            echo $_SESSION['panier']['prixProduit'][$key]*$_SESSION['panier']['qte'][$key];
                             ?> TND</strong></td>
                         <td class="col-sm-1 col-md-1">
                         <a href=<?php 
@@ -208,10 +202,11 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
                         <?php
                         $prix=0;
                         foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
-                            $prix+= $_SESSION['panier']['prixProduit'][$value]*$_SESSION['panier']['qte'][$key];
+                            $prix+= $_SESSION['panier']['prixProduit'][$key]*$_SESSION['panier']['qte'][$key];
 
                         }
                             echo $prix;
+                            //isset($_SESSION['price'])?$_SESSION['price']=$prix:$_SESSION['price']=$prix;
                         ?> TND</strong></h5></td>
                     </tr>
                     <tr>
@@ -226,7 +221,7 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
                         <td>   </td>
                         <td>   </td>
                         <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong><?php echo $prix+8; ?> TND</strong></h3></td>
+                        <td class="text-right"><h3><strong><?php $_SESSION['price']=$prix+8; echo $prix+8; ?> TND</strong></h3></td>
                     </tr>
                     <tr>
                         <td>   </td>
@@ -354,11 +349,11 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 				<div class="col_1_of_4 span_1_of_4">
 						<h4>Information</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
+                              <li><a href="about.php">About Us</a></li>
 						<li><a href="contact.php">Customer Service</a></li>
-						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.php">Orders and Returns</a></li>
-						<li><a href="contact.php">Contact Us</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="contact.php">Site Map</a></li>
+						<li><a href="#">Search Terms</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
@@ -375,7 +370,7 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 					<h4>My account</h4>
 						<ul>
 							<li><a href="contact.php">Sign In</a></li>
-							<li><a href="index.php">View Cart</a></li>
+							<li><a href="consulterPanier.php">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
 							<li><a href="contact.php">Help</a></li>
@@ -384,13 +379,13 @@ foreach ($_SESSION['panier']['idProduit'] as $key => $value) {
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Contact</h4>
 						<ul>
-							<li><span>+91-123-456789</span></li>
-							<li><span>+00-123-000000</span></li>
+							<li><span>+216 26 211 344</span></li>
+							<li><span>			<li><span></span></li></span></li>
 						</ul>
 						<div class="social-icons">
 							<h4>Follow Us</h4>
 					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
+							      <li><a href="https://www.facebook.com/Shipping-from-across-the-World-111456524500065" target="_blank"><img src="web/images/facebook.png" alt="" /></a></li>
 							      <li><a href="#" target="_blank"><img src="web/images/twitter.png" alt="" /></a></li>
 							      <li><a href="#" target="_blank"><img src="web/images/skype.png" alt="" /> </a></li>
 							      <li><a href="#" target="_blank"> <img src="web/images/dribbble.png" alt="" /></a></li>

@@ -1,7 +1,7 @@
 
 <?php
 include 'class.user.php';
-if(!$_SESSION) session_start();
+if(!isset($_SESSION)) session_start();
 if (isset($_SESSION['user_session'])) {
     $user_id = $_SESSION['user_session'];
     $auth_user = new USER();
@@ -34,7 +34,7 @@ $conn=ConnexionBD::getInstance();
     <div class="header">
         <div class="headertop_desc">
             <div class="call">
-                <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+                <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
             </div>
             <div class="account_desc">
                 <ul>
@@ -43,7 +43,7 @@ $conn=ConnexionBD::getInstance();
                     {
                         ?>
                         <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                        <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
 
                         <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
                         <?php

@@ -116,10 +116,10 @@ function submit(np)
 		            echo '<div class="price-details">';
 		            echo '<div class="price-number">';
 		            foreach ($promotion as $prom) {
-                        if($prom['IDProduit']==$r['IDProduit']){
-                        $exist=1;
-                        
-                        }     
+//                        if($prom['IDProduit']==$r['IDProduit']){
+//                        $exist=1;
+//
+//                        }
                     }
     				
                     if($exist==1){echo '<p style="text-decoration: line-through"><span class="rupees">'.$r['PrixHT'].' DT</span></p>';

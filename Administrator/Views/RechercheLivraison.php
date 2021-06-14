@@ -61,7 +61,8 @@ $liste=$c->afficherlignepourClient($listelivraison[0]['IDCommande']);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">GL2 SHOP</a>
+            <a class="navbar-brand" href="index.php
+							<li><span>			<li><span></span></li></span></li>">GL2 SHOP</a>
         </div>
 
         <div class="header-right">

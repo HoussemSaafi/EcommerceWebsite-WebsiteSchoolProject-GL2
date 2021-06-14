@@ -1,10 +1,10 @@
 <?php
 session_start();
+include_once ('class.user.php');
 require_once('../../Administrator/classes/ConnexionBD.php');
 $conn=ConnexionBD::getInstance();
 if (isset($_SESSION['user_session'])) {
 	$user_id = $_SESSION['user_session'];
-
 	$auth_user = new USER();
 	$stmt = $auth_user->runQuery("SELECT * FROM client WHERE IDclient=:user_id");
 	$stmt->execute(array(":user_id"=>$user_id));

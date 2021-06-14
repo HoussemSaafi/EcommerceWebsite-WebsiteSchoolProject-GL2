@@ -1,6 +1,6 @@
 <?php
 	
-include 'commande.php';
+
 	class Livraison	{
 		public $conn;
 		public $idCommande;
@@ -49,22 +49,27 @@ include 'commande.php';
 		
 		
 		public function detailleLivraison($dateLivraison,$adresse,$idClient)
-		{
+		{   //session_start();
 			$this->dateLivraison=$dateLivraison;
 			$this->adresse=$adresse;
-			$this->idClient=$idClient;
+			$this->idClient=$_SESSION['user_session'];
 		}
 
 		public function creerLivraison()
 		{
-			$sql="INSERT into livraison (DateLivraison,EtatLivraison,IDCommande,adresse,IDClient)	values(CURDATE(),'Approuvée',".$_SESSION['idCommande'].",'".$this->adresse."',".$this->idClient.")";
+			$sql="INSERT into livraison (DateLivraison,etatLivraison,IDCommande,adresse,IDClient)	values(CURDATE(),'Approuvée',".$_SESSION['idCommande'][0].",'".$this->adresse."',".$this->idClient.")";
 			var_dump($sql);
 			$res=$this->conn->query($sql);
 			if($res)
 			{
-				echo "<br>livraison ajouter<br>";
+				echo "<br>Votre Commande et livraison ont été ajoutés avec Succes!<br>";
+                $_SESSION['panier']['prixProduit']= array();
+                $_SESSION['panier']['idProduit']=array();
+                $_SESSION['panier']['qte']=array();
+                echo"<a href='index.php'> Rentrez au Shop </a>";
+                //header('');
 			}
-			else{echo "<br>livraison non ajouter<br>";}
+			else{echo "<br>livraison non ajoutée<br>";}
 		//	var_dump($res);
 		}
 

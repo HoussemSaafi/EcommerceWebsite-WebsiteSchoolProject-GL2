@@ -160,8 +160,8 @@ $this->tabpromProduit[$k]/100+8;
 
 
 		public function ajouterCommande()
-		{
-			$this->idClient=$_SESSION['client'];
+		{   session_start();
+			$this->idClient=$_SESSION['user_session'];
 			$sql="INSERT into commande (DateCreation,EtatPaiment,IDClient,IDReduction,prixtotale) values(CURDATE(),'".$this->etatPaiment."',".$this->idClient.",".$this->idReduction.",".$this->prixTotale.")";
 			$resultatreq=$this->conn->query($sql);
 		/*	var_dump($sql);

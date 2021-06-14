@@ -61,7 +61,7 @@ $conn=ConnexionBD::getInstance();
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+				 <p><span>Need help?</span> call us <span class="number">+216 26 211 344</span></span></p>
 			</div>
 			<div class="account_desc">
 				<ul>
@@ -71,7 +71,7 @@ $conn=ConnexionBD::getInstance();
                     {
                         ?>
                         <label class="h5">welcome : <?php print($userRow['username']); ?></label>
-                        <li><a href="../EspaceClient/services/home.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
+                        <li><a href="../EspaceClient/services/profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Espace Client</a></li>
 
                         <li><a href="../EspaceClient/services/logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Se Déconnecter</a></li>
 
@@ -158,18 +158,18 @@ $conn=ConnexionBD::getInstance();
     	<div class="section group">
 				<div class="grid_1_of_3 images_1_of_3">
 					  <img src="web/images/delivery-img1.jpg" alt="" />
-					  <h3>Lorem Ipsum is simply dummy text </h3>
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					  <h3>YO YO YO, YOU ASKED FOR THE PRODUCT AND WE DELIVERED </h3>
+					  <p>We deliver products from all over the world, We ship them and then deliver them to your house.</p>
 				</div>
 				<div class="grid_1_of_3 images_1_of_3">
 					  <img src="web/images/delivery-img2.jpg" alt="" />
-					  <h3>Lorem Ipsum is simply dummy text </h3>
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					  <h3>Wassup my guy! Here came your product! Have you paid with Paypal or you will be paying upon reception?  </h3>
+					  <p>Don't forget to visit our website and tell your friends to sign up we have the coolest items with the best reductions and promos</p>
 				</div>
 				<div class="grid_1_of_3 images_1_of_3">
 					  <img src="web/images/delivery-img3.jpg" alt="" />
-					  <h3>Lorem Ipsum is simply dummy text </h3>
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					  <h3>Now have a great day!</h3>
+					  <p>Don't forget to subscribe to our newsletter! We would provide you with the latest of our added items!</p>
 				</div>
 			</div>	
 		<div class="faqs">

@@ -1,12 +1,13 @@
 <?php
+require_once('../classes/ConnexionBD.php');
 
-include("../classes/Repository.php");
 include("../classes/ReponseReclamation.php");
 
-class crudReponseReclamation extends Repository {
+class crudReponseReclamation{
+
     function __construct()
     {
-        parent::__construct('reponsereclamation');
+        $this->bd = ConnexionBD::getInstance();
 
     }
 

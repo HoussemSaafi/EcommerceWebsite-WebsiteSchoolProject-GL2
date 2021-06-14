@@ -1,6 +1,8 @@
 <?php
 require_once('commande.php');
-$c =new commande();
+if(!isset($_SESSION)) session_start();
+$c =new Commande();
+$c->ajouterCommande();
 //var_dump($_SESSION['client']);
 $Commande=$c->commandefacture($_SESSION['client']);
 var_dump($Commande);
@@ -46,7 +48,7 @@ foreach ($Commande as $key => $value) {
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <address>
-                        <strong>SebCom</strong>
+                        <strong>GL2 ON DEMAND SHOP</strong>
                         <br>
                         6 Rue Sparte
                         <br>

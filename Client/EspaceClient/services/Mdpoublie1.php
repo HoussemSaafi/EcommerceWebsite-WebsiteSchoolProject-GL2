@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("../cruds/crudClient.php");
+//include_once ('../../../Administrator/classes/ConnexionBD.php');
 
 
 $login = new crudClient();
@@ -17,9 +18,9 @@ if(isset($_POST['btn-reset']))
     else if($umail=="") {
         $error[] = "Entrer votre Email ID !";
     }
-
+    $conn=ConnexionBD::getInstance();
     $stmt ="SELECT username, email FROM client WHERE username=:uname OR email=:umail ";
-    $req = $login->getBd()->prepare($stmt);
+    $req = $conn->prepare($stmt);
     $req->execute(array(':uname'=>$uname, ':umail'=>$umail ));
     $row=$req->fetch(PDO::FETCH_ASSOC);
     if( ($row['username'] == $uname)||($row['email'] == $umail) )
@@ -32,7 +33,7 @@ if(isset($_POST['btn-reset']))
         {
 
             $stmt ="SELECT IDclient FROM client WHERE username=:uname OR email=:umail ";
-            $req = $login->getBd()->prepare($stmt);
+            $req =$conn->prepare($stmt);
             $req->execute(array(':uname'=>$uname, ':umail'=>$umail));
             $row=$req->fetch(PDO::FETCH_ASSOC);
             $encode=base64_encode ( $row['IDclient'] );
@@ -59,7 +60,7 @@ if(isset($_POST['btn-reset']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Bienvenu a SEBCOM</title>
+    <title>Bienvenu a GL2 ON DEMAND SHOP</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="../assets/css/style.css" type="text/css"  />
@@ -111,7 +112,7 @@ if(isset($_POST['btn-reset']))
                     </button>
                 </div>
                 <br />
-                <label>Vous n'avez pas encore de compte ! <a href="../../../../projet/Client/services/sign-up.php">S'inscrire</a></label>
+                <label>Vous n'avez pas encore de compte ! <a href="sign-up.php">S'inscrire</a></label>
         </form>
 
     </div>

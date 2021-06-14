@@ -50,7 +50,7 @@ if(isset($_POST['btn-reset']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Bienvenu a SEBCOM</title>
+    <title>Bienvenu a GL2 ON DEMAND SHOP</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="../assets/css/style.css" type="text/css"  />

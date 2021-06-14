@@ -36,7 +36,7 @@ if ($supprimer = isset($_POST["supprimer"])){
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SEBCOM</title>
+    <title>GL2 ON DEMAND SHOP</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->

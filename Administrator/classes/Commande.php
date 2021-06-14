@@ -89,8 +89,11 @@ class Commande
 				{
 
 					$this->idClient = $userRow['IDclient'];
-					//echo $this->idClient;
-					return true;
+					$_SESSION['khorma']=$userRow['IDclient'];
+					$_SESSION['l']=1;
+
+
+                    return true;
 				}
 				else
 				{

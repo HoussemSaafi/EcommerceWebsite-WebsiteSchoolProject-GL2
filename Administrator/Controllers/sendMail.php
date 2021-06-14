@@ -33,10 +33,10 @@ if($produit)
         $mail->addAddress($res['email']);
     }
 
-    $mail->Subject = 'A NEW PRODUCT IS JUST IN!';
+    $mail->Subject = 'A NEW PRODUCT IS JUST IN: '.$produit['Designation'];
     var_dump($produit);
     //$mail->Body    = 'nom produit :'.$produit->getDesignation().' Prix : '.$produit->getPrixHT();
-    $mail->Body    = 'Hello our dear Subscriber Discover our new product: Product Name :'.$produit['Designation'].' Product Price : '.$produit['PrixHT'];
+    $mail->Body    = 'Hello our dear Subscriber Discover our new product: Product Name :'.$produit['Designation'].' Product Price : '.$produit['PrixHT'].' TND';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if(!$mail->send()) {
@@ -44,7 +44,7 @@ if($produit)
         // echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         echo 'Message has been sent';
-//    header('location:../Views/Afficher_produit.php');
+        //header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
 
