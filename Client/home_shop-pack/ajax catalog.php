@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../Administrator/classes/ConnexionBD.php');
+require_once('ConnexionBD.php');
 $conn= ConnexionBD::getInstance();
 /*********************************************************************************************************************/
 //1- établir la cnx avec la base de données

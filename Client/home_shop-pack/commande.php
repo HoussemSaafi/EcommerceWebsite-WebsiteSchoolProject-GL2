@@ -3,7 +3,7 @@
 /**
 * 
 */
-require_once('../../Administrator/classes/ConnexionBD.php');
+require_once('ConnexionBD.php');
 
 //session_start();
 

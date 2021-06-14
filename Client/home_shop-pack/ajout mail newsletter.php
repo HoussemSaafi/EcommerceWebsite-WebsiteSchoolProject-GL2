@@ -1,7 +1,7 @@
 <?php
 // filename: myAjaxFile.php
 // some PHP
-require_once('../../Administrator/classes/ConnexionBD.php');
+require_once('ConnexionBD.php');
 		$conn=ConnexionBD::getInstance();
 
 		$req1="INSERT INTO newsletter (email) VALUES ('".$_GET['email']."')";

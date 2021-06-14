@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../../Administrator/classes/ConnexionBD.php');
+require_once('ConnexionBD.php');
 
 	class Panier 
 	{

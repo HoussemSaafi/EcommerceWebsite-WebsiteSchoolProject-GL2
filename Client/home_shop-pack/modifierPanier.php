@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once ('class.user.php');
-require_once('../../Administrator/classes/ConnexionBD.php');
+require_once('ConnexionBD.php');
 $conn=ConnexionBD::getInstance();
 if (isset($_SESSION['user_session'])) {
 	$user_id = $_SESSION['user_session'];

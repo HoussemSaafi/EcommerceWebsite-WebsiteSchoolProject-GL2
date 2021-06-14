@@ -1,5 +1,5 @@
 <?php
-include_once ('../../Administrator/classes/ConnexionBD.php');
+include_once ('ConnexionBD.php');
 $conn=ConnexionBD::getInstance();
 var_dump($_POST['newsletter']);
 //var_dump($_POST['name']);

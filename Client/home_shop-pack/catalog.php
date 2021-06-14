@@ -1,7 +1,7 @@
 <?php
 
 //require_once('../classes/ConnexionBD.php');
-require_once('../../Administrator/classes/ConnexionBD.php');
+require_once('ConnexionBD.php');
 
         $conn= ConnexionBD::getInstance();
 

@@ -23,7 +23,7 @@
 		*/
 
 //require_once('../EspaceClient/classes/ConnexionBD.php');
-require_once('../../Administrator/classes/ConnexionBD.php');
+require_once('ConnexionBD.php');
 
 $conn=ConnexionBD::getInstance();
 $keyword=$_GET['keyword'] ;

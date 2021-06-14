@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("../cruds/crudClient.php");
-//include_once ('../../../Administrator/classes/ConnexionBD.php');
+
 
 
 $login = new crudClient();
