@@ -1,4 +1,4 @@
-# EcommerceWebsite-ProjetWebGL2 - TuniShipping - WE SHIP PRODUCTS FROM ALL OVER THE WORLD FOR OUR TUNISIAN CLIENTS BASED ON THEIR DEMANDS
+# EcommerceWebsite-ProjetWebGL2 - TuniShipping
 *****************************************************PLEASE READ ME**********************************************************************
 
 **Links:**
